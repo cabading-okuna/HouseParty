@@ -9,12 +9,18 @@ import SwiftUI
 
 struct ScheduleView: View {
     var body: some View {
-        Text("Schedule will be here")
+        ScrollView{
+            DatePicker(selection: .constant(Date()), label: { /*@START_MENU_TOKEN@*/Text("Date")/*@END_MENU_TOKEN@*/ })
+                .navigationBarTitle("Schedule", displayMode: .inline)
+            
+        }.padding(.all, 15.0)
     }
 }
 
 struct ScheduleView_Previews: PreviewProvider {
     static var previews: some View {
-        ScheduleView()
+        NavigationView{
+            ScheduleView()
+        }
     }
 }

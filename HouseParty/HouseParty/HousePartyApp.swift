@@ -40,7 +40,7 @@ struct HousePartyApp: App {
                     AccountView()
                 }.tabItem{
                     Image(systemName: "person.crop.circle")
-                    Text("Profile")
+                    Text("Account")
                 }
             }
         }

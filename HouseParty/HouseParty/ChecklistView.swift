@@ -9,12 +9,17 @@ import SwiftUI
 
 struct ChecklistView: View {
     var body: some View {
-        Text("Checklist will go here")
+        ScrollView{
+            Text("Checklist will go here")
+                .navigationBarTitle("Checklist", displayMode: .inline)
+        }.padding(.all, 15.0)
     }
 }
 
 struct ChecklistView_Previews: PreviewProvider {
     static var previews: some View {
-        ChecklistView()
+        NavigationView{
+            ChecklistView()
+        }
     }
 }

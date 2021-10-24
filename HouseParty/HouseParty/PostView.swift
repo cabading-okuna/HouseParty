@@ -9,12 +9,17 @@ import SwiftUI
 
 struct PostView: View {
     var body: some View {
-        Text("Create New Post and HouseParty! will go here")
+        ScrollView{
+            Text("Create New Post and HouseParty! will go here")
+                .navigationBarTitle("Checklist", displayMode: .inline)
+        }.padding(.all, 15.0)
     }
 }
 
 struct PostView_Previews: PreviewProvider {
     static var previews: some View {
-        PostView()
+        NavigationView{
+            PostView()
+        }
     }
 }
