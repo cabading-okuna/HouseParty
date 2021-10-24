@@ -14,6 +14,10 @@
 		53C7A250270988FC007DB2AE /* HousePartyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C7A24F270988FC007DB2AE /* HousePartyTests.swift */; };
 		53C7A25A270988FC007DB2AE /* HousePartyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C7A259270988FC007DB2AE /* HousePartyUITests.swift */; };
 		53C7A25C270988FC007DB2AE /* HousePartyUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C7A25B270988FC007DB2AE /* HousePartyUITestsLaunchTests.swift */; };
+		635F1DCA2724DBF800913339 /* ScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635F1DC92724DBF800913339 /* ScheduleView.swift */; };
+		635F1DCC2724DE5D00913339 /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635F1DCB2724DE5D00913339 /* AccountView.swift */; };
+		635F1DCE2724E25100913339 /* ChecklistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635F1DCD2724E25100913339 /* ChecklistView.swift */; };
+		635F1DD02724E2D900913339 /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635F1DCF2724E2D900913339 /* PostView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +48,10 @@
 		53C7A255270988FC007DB2AE /* HousePartyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HousePartyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		53C7A259270988FC007DB2AE /* HousePartyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HousePartyUITests.swift; sourceTree = "<group>"; };
 		53C7A25B270988FC007DB2AE /* HousePartyUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HousePartyUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		635F1DC92724DBF800913339 /* ScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleView.swift; sourceTree = "<group>"; };
+		635F1DCB2724DE5D00913339 /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
+		635F1DCD2724E25100913339 /* ChecklistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistView.swift; sourceTree = "<group>"; };
+		635F1DCF2724E2D900913339 /* PostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +104,10 @@
 			children = (
 				53C7A23E270988FA007DB2AE /* HousePartyApp.swift */,
 				53C7A240270988FA007DB2AE /* ContentView.swift */,
+				635F1DC92724DBF800913339 /* ScheduleView.swift */,
+				635F1DCB2724DE5D00913339 /* AccountView.swift */,
+				635F1DCD2724E25100913339 /* ChecklistView.swift */,
+				635F1DCF2724E2D900913339 /* PostView.swift */,
 				53C7A242270988FC007DB2AE /* Assets.xcassets */,
 				53C7A244270988FC007DB2AE /* Preview Content */,
 			);
@@ -257,7 +269,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				635F1DCC2724DE5D00913339 /* AccountView.swift in Sources */,
+				635F1DCE2724E25100913339 /* ChecklistView.swift in Sources */,
 				53C7A241270988FA007DB2AE /* ContentView.swift in Sources */,
+				635F1DCA2724DBF800913339 /* ScheduleView.swift in Sources */,
+				635F1DD02724E2D900913339 /* PostView.swift in Sources */,
 				53C7A23F270988FA007DB2AE /* HousePartyApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
