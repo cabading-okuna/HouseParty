@@ -18,6 +18,7 @@
 		635F1DCC2724DE5D00913339 /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635F1DCB2724DE5D00913339 /* AccountView.swift */; };
 		635F1DCE2724E25100913339 /* ChecklistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635F1DCD2724E25100913339 /* ChecklistView.swift */; };
 		635F1DD02724E2D900913339 /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635F1DCF2724E2D900913339 /* PostView.swift */; };
+		63FF24F9272620280088B621 /* SigninView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FF24F8272620280088B621 /* SigninView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,7 @@
 		635F1DCB2724DE5D00913339 /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
 		635F1DCD2724E25100913339 /* ChecklistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistView.swift; sourceTree = "<group>"; };
 		635F1DCF2724E2D900913339 /* PostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
+		63FF24F8272620280088B621 /* SigninView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +110,7 @@
 				635F1DCB2724DE5D00913339 /* AccountView.swift */,
 				635F1DCD2724E25100913339 /* ChecklistView.swift */,
 				635F1DCF2724E2D900913339 /* PostView.swift */,
+				63FF24F8272620280088B621 /* SigninView.swift */,
 				53C7A242270988FC007DB2AE /* Assets.xcassets */,
 				53C7A244270988FC007DB2AE /* Preview Content */,
 			);
@@ -274,6 +277,7 @@
 				53C7A241270988FA007DB2AE /* ContentView.swift in Sources */,
 				635F1DCA2724DBF800913339 /* ScheduleView.swift in Sources */,
 				635F1DD02724E2D900913339 /* PostView.swift in Sources */,
+				63FF24F9272620280088B621 /* SigninView.swift in Sources */,
 				53C7A23F270988FA007DB2AE /* HousePartyApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

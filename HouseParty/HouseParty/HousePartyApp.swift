@@ -29,6 +29,7 @@ struct HousePartyApp: App {
                 }.tabItem{
                     Image(systemName: "plus.rectangle.fill")
                         .resizable(capInsets: EdgeInsets(top: 5.0, leading: 5.0, bottom: 5.0, trailing: 5.0))
+                    Text("New Post")
                 }
                 NavigationView{
                     ScheduleView()

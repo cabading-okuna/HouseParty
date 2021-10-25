@@ -10,8 +10,13 @@ import SwiftUI
 struct ChecklistView: View {
     var body: some View {
         ScrollView{
+            VStack(alignment: .center, spacing: 0){
             Text("Checklist will go here")
                 .navigationBarTitle("Checklist", displayMode: .inline)
+                
+                
+                
+            }
         }.padding(.all, 15.0)
     }
 }

@@ -14,9 +14,10 @@ var body: some View {
         ScrollView{
             VStack(alignment: .center, spacing: 0){
                 //Profile Picture
-                Image(systemName: "person.crop.circle.fill")
-                    .resizable(capInsets: EdgeInsets(top: 100.0, leading: 0.0, bottom: 0.0, trailing: 0.0))
-                    .frame(width: 110, height: 110)
+                Image(systemName: "person.crop.circle.fill.badge.plus")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 100, height: 100)
                     .foregroundColor(Color.gray)
                 //Profile Settings Section
                 Section(header: Text("Profile Settings")) {
@@ -58,7 +59,7 @@ var body: some View {
                     }.padding(.all)
                 //Password Section
                 Divider()
-                    Section(header: Text("Password Setting")) {
+                    Section(header: Text("Password Settings")) {
                         HStack(alignment: .top){
                             Text("Password")
                             Spacer()
