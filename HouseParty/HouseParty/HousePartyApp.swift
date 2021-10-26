@@ -9,11 +9,19 @@ import SwiftUI
 
 @main
 struct HousePartyApp: App {
+    var apiService: ApiService
+    var contentViewModel: ContentViewModel
+    
+    init() {
+        self.apiService = ApiService()
+        self.contentViewModel = ContentViewModel(apiService: self.apiService)
+    }
+    
     var body: some Scene {
         WindowGroup {
             TabView{
                 NavigationView{
-                    ContentView()
+                    ContentView(viewModel: contentViewModel)
                 }.tabItem{
                     Image(systemName: "house.fill")
                     Text("Timeline")

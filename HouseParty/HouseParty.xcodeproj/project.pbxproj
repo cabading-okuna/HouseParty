@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		53102A5C2727BCFC0058E37A /* Posting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53102A5B2727BCFC0058E37A /* Posting.swift */; };
+		53102A5F2727BD9D0058E37A /* PostingRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53102A5E2727BD9D0058E37A /* PostingRow.swift */; };
+		53102A622727D1900058E37A /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53102A612727D1900058E37A /* ApiService.swift */; };
+		53102A642727D6250058E37A /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53102A632727D6250058E37A /* ContentViewModel.swift */; };
 		53C7A23F270988FA007DB2AE /* HousePartyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C7A23E270988FA007DB2AE /* HousePartyApp.swift */; };
 		53C7A241270988FA007DB2AE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C7A240270988FA007DB2AE /* ContentView.swift */; };
 		53C7A243270988FC007DB2AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 53C7A242270988FC007DB2AE /* Assets.xcassets */; };
@@ -39,6 +43,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		53102A5B2727BCFC0058E37A /* Posting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Posting.swift; sourceTree = "<group>"; };
+		53102A5E2727BD9D0058E37A /* PostingRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostingRow.swift; sourceTree = "<group>"; };
+		53102A612727D1900058E37A /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
+		53102A632727D6250058E37A /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
 		53C7A23B270988FA007DB2AE /* HouseParty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HouseParty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		53C7A23E270988FA007DB2AE /* HousePartyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HousePartyApp.swift; sourceTree = "<group>"; };
 		53C7A240270988FA007DB2AE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -81,6 +89,37 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		53102A5A2727BCDF0058E37A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				53102A5B2727BCFC0058E37A /* Posting.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		53102A5D2727BD620058E37A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				635F1DC92724DBF800913339 /* ScheduleView.swift */,
+				635F1DCB2724DE5D00913339 /* AccountView.swift */,
+				53C7A240270988FA007DB2AE /* ContentView.swift */,
+				635F1DCD2724E25100913339 /* ChecklistView.swift */,
+				635F1DCF2724E2D900913339 /* PostView.swift */,
+				63FF24F8272620280088B621 /* SigninView.swift */,
+				53102A5E2727BD9D0058E37A /* PostingRow.swift */,
+				53102A632727D6250058E37A /* ContentViewModel.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		53102A602727D1840058E37A /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				53102A612727D1900058E37A /* ApiService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		53C7A232270988FA007DB2AE = {
 			isa = PBXGroup;
 			children = (
@@ -104,13 +143,10 @@
 		53C7A23D270988FA007DB2AE /* HouseParty */ = {
 			isa = PBXGroup;
 			children = (
+				53102A602727D1840058E37A /* Services */,
+				53102A5D2727BD620058E37A /* Views */,
+				53102A5A2727BCDF0058E37A /* Models */,
 				53C7A23E270988FA007DB2AE /* HousePartyApp.swift */,
-				53C7A240270988FA007DB2AE /* ContentView.swift */,
-				635F1DC92724DBF800913339 /* ScheduleView.swift */,
-				635F1DCB2724DE5D00913339 /* AccountView.swift */,
-				635F1DCD2724E25100913339 /* ChecklistView.swift */,
-				635F1DCF2724E2D900913339 /* PostView.swift */,
-				63FF24F8272620280088B621 /* SigninView.swift */,
 				53C7A242270988FC007DB2AE /* Assets.xcassets */,
 				53C7A244270988FC007DB2AE /* Preview Content */,
 			);
@@ -276,6 +312,10 @@
 				635F1DCE2724E25100913339 /* ChecklistView.swift in Sources */,
 				53C7A241270988FA007DB2AE /* ContentView.swift in Sources */,
 				635F1DCA2724DBF800913339 /* ScheduleView.swift in Sources */,
+				53102A5C2727BCFC0058E37A /* Posting.swift in Sources */,
+				53102A5F2727BD9D0058E37A /* PostingRow.swift in Sources */,
+				53102A622727D1900058E37A /* ApiService.swift in Sources */,
+				53102A642727D6250058E37A /* ContentViewModel.swift in Sources */,
 				635F1DD02724E2D900913339 /* PostView.swift in Sources */,
 				63FF24F9272620280088B621 /* SigninView.swift in Sources */,
 				53C7A23F270988FA007DB2AE /* HousePartyApp.swift in Sources */,
@@ -447,7 +487,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -477,7 +517,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
