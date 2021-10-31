@@ -18,6 +18,10 @@
 		53C7A250270988FC007DB2AE /* HousePartyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C7A24F270988FC007DB2AE /* HousePartyTests.swift */; };
 		53C7A25A270988FC007DB2AE /* HousePartyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C7A259270988FC007DB2AE /* HousePartyUITests.swift */; };
 		53C7A25C270988FC007DB2AE /* HousePartyUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C7A25B270988FC007DB2AE /* HousePartyUITestsLaunchTests.swift */; };
+		63388A90272F4205009633ED /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63388A8F272F4205009633ED /* Credentials.swift */; };
+		63388A92272F43C1009633ED /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63388A91272F43C1009633ED /* LoginViewModel.swift */; };
+		63388A94272F55E1009633ED /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63388A93272F55E1009633ED /* LoginView.swift */; };
+		63388A96272F5917009633ED /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63388A95272F5917009633ED /* Authentication.swift */; };
 		635F1DCA2724DBF800913339 /* ScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635F1DC92724DBF800913339 /* ScheduleView.swift */; };
 		635F1DCC2724DE5D00913339 /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635F1DCB2724DE5D00913339 /* AccountView.swift */; };
 		635F1DCE2724E25100913339 /* ChecklistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635F1DCD2724E25100913339 /* ChecklistView.swift */; };
@@ -58,6 +62,10 @@
 		53C7A255270988FC007DB2AE /* HousePartyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HousePartyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		53C7A259270988FC007DB2AE /* HousePartyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HousePartyUITests.swift; sourceTree = "<group>"; };
 		53C7A25B270988FC007DB2AE /* HousePartyUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HousePartyUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		63388A8F272F4205009633ED /* Credentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
+		63388A91272F43C1009633ED /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		63388A93272F55E1009633ED /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		63388A95272F5917009633ED /* Authentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
 		635F1DC92724DBF800913339 /* ScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleView.swift; sourceTree = "<group>"; };
 		635F1DCB2724DE5D00913339 /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
 		635F1DCD2724E25100913339 /* ChecklistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistView.swift; sourceTree = "<group>"; };
@@ -95,6 +103,7 @@
 			isa = PBXGroup;
 			children = (
 				53102A5B2727BCFC0058E37A /* Posting.swift */,
+				63388A8F272F4205009633ED /* Credentials.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -108,9 +117,11 @@
 				635F1DCD2724E25100913339 /* ChecklistView.swift */,
 				635F1DCF2724E2D900913339 /* PostView.swift */,
 				63FF24F8272620280088B621 /* SigninView.swift */,
+				63388A93272F55E1009633ED /* LoginView.swift */,
 				53102A5E2727BD9D0058E37A /* PostingRow.swift */,
 				53102A632727D6250058E37A /* ContentViewModel.swift */,
 				6380BA62272E82FA000505FC /* LaunchScreen.storyboard */,
+				63388A91272F43C1009633ED /* LoginViewModel.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -150,6 +161,7 @@
 				53102A5D2727BD620058E37A /* Views */,
 				53102A5A2727BCDF0058E37A /* Models */,
 				53C7A23E270988FA007DB2AE /* HousePartyApp.swift */,
+				63388A95272F5917009633ED /* Authentication.swift */,
 				53C7A242270988FC007DB2AE /* Assets.xcassets */,
 				53C7A244270988FC007DB2AE /* Preview Content */,
 			);
@@ -318,6 +330,10 @@
 				635F1DCA2724DBF800913339 /* ScheduleView.swift in Sources */,
 				53102A5C2727BCFC0058E37A /* Posting.swift in Sources */,
 				53102A5F2727BD9D0058E37A /* PostingRow.swift in Sources */,
+				63388A90272F4205009633ED /* Credentials.swift in Sources */,
+				63388A92272F43C1009633ED /* LoginViewModel.swift in Sources */,
+				63388A96272F5917009633ED /* Authentication.swift in Sources */,
+				63388A94272F55E1009633ED /* LoginView.swift in Sources */,
 				53102A622727D1900058E37A /* ApiService.swift in Sources */,
 				53102A642727D6250058E37A /* ContentViewModel.swift in Sources */,
 				635F1DD02724E2D900913339 /* PostView.swift in Sources */,
@@ -546,7 +562,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 3PFHMAB3X6;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -571,7 +587,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 3PFHMAB3X6;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

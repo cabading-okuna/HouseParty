@@ -8,11 +8,22 @@
 import Foundation
 
 class ApiService :  NSObject {
-    
+    static let shared = ApiService()
     
     func getPostings() async -> [Posting] {
         var posting1 = Posting(id: "123", userId: "abc", postBody: "this is a test", postHeading: "this is a heading", postedTime: Date())
         return [posting1]
+    }
+    
+    func login(credentials: Credentials,
+               completion: @escaping (Result<Bool,Authentication.AuthenticationError>) -> Void){
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1){
+            if credentials.password == "Changeme" && credentials.email == "Admin@houseparty.com"{
+                completion(.success(true))
+            } else {
+                completion(.failure(.invalidCredentials))
+            }
+        }
     }
     
 }

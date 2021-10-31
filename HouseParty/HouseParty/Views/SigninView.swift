@@ -24,9 +24,9 @@ struct SigninView: View {
         ZStack{
             VStack{
                 Welcome()
-                HouseIcon()
-                UsernameView(username: $username)
-                PasswordView(password: $password)
+                // HouseIcon()
+                // UsernameView(username: $username)
+                // PasswordView(password: $password)
                 if authenticationFail{
                     Text("User not found. Please try again.")
                         .italic().foregroundColor(.gray)
@@ -38,7 +38,7 @@ struct SigninView: View {
                         self.authenticationFail = true
                     }
                 }){
-                    LoginView()
+                   // LoginView()
                 }
             }.padding()
             if authenticationSucceed{
@@ -66,6 +66,7 @@ struct Welcome: View{
     }
 }
 
+/*
 struct HouseIcon: View{
     var body: some View{
         Image(systemName: "house.circle.fill")
@@ -76,7 +77,8 @@ struct HouseIcon: View{
             .padding(.bottom, 75)
     }
 }
-
+*/
+/*
 struct LoginView: View {
     var body: some View {
         Text("SIGN IN")
@@ -89,7 +91,8 @@ struct LoginView: View {
             .cornerRadius(30)
     }
 }
-
+ */
+/*
 struct UsernameView: View {
     @Binding var username: String
     
@@ -101,7 +104,8 @@ struct UsernameView: View {
             .padding(.bottom, 10)
     }
 }
-
+*/
+/*
 struct PasswordView: View {
     @Binding var password: String
 
@@ -113,3 +117,4 @@ struct PasswordView: View {
             .padding(.bottom, 10.0)
     }
 }
+*/
