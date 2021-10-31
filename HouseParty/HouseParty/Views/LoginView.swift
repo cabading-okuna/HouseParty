@@ -43,7 +43,7 @@ struct LoginView: View{
             }
         }.autocapitalization(.none)
             .alert(item: $loginVM.error){ error in
-                Alert(title: Text("Invalid Login. Please try again."), message: Text(error.localizedDescription))
+                Alert(title: Text("Invalid Login"), message: Text(error.localizedDescription))
             }
     }
 }
