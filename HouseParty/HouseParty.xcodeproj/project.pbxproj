@@ -47,6 +47,7 @@
 		53102A5E2727BD9D0058E37A /* PostingRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostingRow.swift; sourceTree = "<group>"; };
 		53102A612727D1900058E37A /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
 		53102A632727D6250058E37A /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
+		53102A652727EE860058E37A /* server */ = {isa = PBXFileReference; lastKnownFileType = folder; name = server; path = ../server; sourceTree = "<group>"; };
 		53C7A23B270988FA007DB2AE /* HouseParty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HouseParty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		53C7A23E270988FA007DB2AE /* HousePartyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HousePartyApp.swift; sourceTree = "<group>"; };
 		53C7A240270988FA007DB2AE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -123,6 +124,7 @@
 		53C7A232270988FA007DB2AE = {
 			isa = PBXGroup;
 			children = (
+				53102A652727EE860058E37A /* server */,
 				53C7A23D270988FA007DB2AE /* HouseParty */,
 				53C7A24E270988FC007DB2AE /* HousePartyTests */,
 				53C7A258270988FC007DB2AE /* HousePartyUITests */,
