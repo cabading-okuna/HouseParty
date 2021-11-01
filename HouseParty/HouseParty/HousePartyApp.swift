@@ -9,6 +9,7 @@ import SwiftUI
 
 @main
 struct HousePartyApp: App {
+    @StateObject var authentication =  Authentication()
     var apiService: ApiService
     var contentViewModel: ContentViewModel
     
@@ -19,38 +20,42 @@ struct HousePartyApp: App {
     
     var body: some Scene {
         WindowGroup {
-            TabView{
-                NavigationView{
-                    ContentView(viewModel: contentViewModel)
-                }.tabItem{
-                    Image(systemName: "house.fill")
-                    Text("Timeline")
-                }
-                NavigationView{
-                    ChecklistView()
-                }.tabItem{
-                    Image(systemName: "checkmark")
-                    Text("Checklist")
-                }
-                NavigationView{
-                    PostView()
-                }.tabItem{
-                    Image(systemName: "plus.rectangle.fill")
-                        .resizable(capInsets: EdgeInsets(top: 5.0, leading: 5.0, bottom: 5.0, trailing: 5.0))
-                    Text("New Post")
-                }
-                NavigationView{
-                    ScheduleView()
-                }.tabItem{
-                    Image(systemName: "calendar")
-                    Text("Schedule")
-                }
-                NavigationView{
-                    AccountView()
-                }.tabItem{
-                    Image(systemName: "person.crop.circle")
-                    Text("Account")
-                }
+            if authentication.isValidated{
+                TabView{
+                    NavigationView{
+                        ContentView(viewModel: contentViewModel)
+                    }.tabItem{
+                        Image(systemName: "house.fill")
+                        Text("Timeline")
+                    }
+                    NavigationView{
+                        ChecklistView()
+                    }.tabItem{
+                        Image(systemName: "checkmark")
+                        Text("Checklist")
+                    }
+                    NavigationView{
+                        PostView()
+                    }.tabItem{
+                        Image(systemName: "plus.rectangle.fill")
+                        Text("New Post")
+                    }
+                    NavigationView{
+                        ScheduleView()
+                    }.tabItem{
+                        Image(systemName: "calendar")
+                        Text("Schedule")
+                    }
+                    NavigationView{
+                        AccountView()
+                    }.tabItem{
+                        Image(systemName: "person.crop.circle")
+                        Text("Account")
+                    }
+                } .environmentObject(authentication)
+            } else {
+                LoginView()
+                    .environmentObject(authentication)
             }
         }
     }

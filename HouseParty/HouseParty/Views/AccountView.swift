@@ -9,6 +9,7 @@ import SwiftUI
 
 struct AccountView: View {
     @State private var enableNotification: Bool = true
+    @EnvironmentObject var authentication: Authentication
     
 var body: some View {
         ScrollView{
@@ -72,10 +73,22 @@ var body: some View {
                         }
                     }.padding(.vertical,  8.0)
                 }.padding(.top,  8.0)
+                Section{
+                    Button("SIGN OUT") {
+                        authentication.updateValidation(success: false)
+                    }
+                    .multilineTextAlignment(.center)
+                    .foregroundColor(.white)
+                    .padding()
+                    .cornerRadius(3.0)
+                    .frame(width: 350, height: 45)
+                    .background(.red)
+                    .cornerRadius(30)
+                    .padding(.top, 25)
+                }.padding(.vertical,  8.0)
             }
             .navigationBarTitle("Account", displayMode: .inline)
         }.padding(.all, 15.0)
-    }
 }
 
 struct AccountView_Previews: PreviewProvider {
@@ -84,4 +97,5 @@ struct AccountView_Previews: PreviewProvider {
             AccountView()
         }
     }
+}
 }
