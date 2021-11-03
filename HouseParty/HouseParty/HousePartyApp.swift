@@ -12,10 +12,12 @@ struct HousePartyApp: App {
     @StateObject var authentication =  Authentication()
     var apiService: ApiService
     var contentViewModel: ContentViewModel
+    var loginViewModel: LoginViewModel
     
     init() {
         self.apiService = ApiService()
         self.contentViewModel = ContentViewModel(apiService: self.apiService)
+        self.loginViewModel = LoginViewModel(apiService: self.apiService)
     }
     
     var body: some Scene {
@@ -54,7 +56,7 @@ struct HousePartyApp: App {
                     }
                 } .environmentObject(authentication)
             } else {
-                LoginView()
+                LoginView(loginVM: loginViewModel)
                     .environmentObject(authentication)
             }
         }
