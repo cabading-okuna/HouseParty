@@ -1,73 +1,50 @@
 import express from 'express';
 import mongoose from 'mongoose';
-const app = express();
 import bcrypt from 'bcrypt';
+import sessionService from 'express-session';
+import cookieParser from 'cookie-parser';
+import connectMongo from 'connect-mongo';
+import MongoStore from 'connect-mongo';
+import authRouter from './routes/auth';
+import passport, { Passport } from 'passport';
+import { PassportStrategyInitializer } from './passport-setup';
 
-const dbURI = "mongodb://localhost/houseparty"
-app.use(express.json())
+const app = express();
+const dbURI = "mongodb://localhost/houseparty";
+const port = 3000;
+const oneWeek = 7 * 1000 * 60 * 60 * 24;
 
-const router = express.Router()
-const User = require('./models/user')
-const rounds = 10
+(async function () {
+    app.use(express.json());
+    app.use(cookieParser("secret"));
 
-const jwt = require('jsonwebtoken')
-const tokenSecret = "my-token-secret"
+    app.use(sessionService({
+        secret: "secret",
+        saveUninitialized:true,
+        cookie: { maxAge: oneWeek },
+        resave: false,
+        store: MongoStore.create({mongoUrl: dbURI })
+    }));
 
-const middleware = require('./middlewares')
+    app.use(passport.initialize());
+    app.use(passport.session());
+    let passportInit = new PassportStrategyInitializer();
+    passportInit.init();
 
-router.post('/login', (req, res) => {
-    console.log(req.body)
-    User.findOne({email: req.body.email})
-    .then(user => {
-        if(!user) res.status(404).json({error: 'no user with that email found'})
-        else {
-            bcrypt.compare(req.body.password, user.password, (error, match) => {
-                if (error) res.status(500).json(error)
-                else if (match) {
-                    console.log(user)
-                    res.status(200).json({token: generateToken(user)})
-                }
-                else res.status(403).json({error: 'passwords do not match'})
-            })
-        }
-    })
-    .catch(error => {
-        res.status(500).json(error)
-    })
-});
+    app.use('/api', authRouter);
 
-router.post('/signup', (req, res) => {
-    console.log("signup: ", req.body);
-    bcrypt.hash(req.body.password, 10).then((hash) => {
-        const newUser = User({email: req.body.email, password: hash})
-        console.log(newUser)
-        newUser.save()
-            .then(user => {
-                res.status(200).json({token: generateToken(user)})
-            })
-            .catch(error => {
-                res.status(500).json(error)
-            })
-    }).catch(error => {
-        console.log(error);
-        res.status(500).json(error);
-    })
-});
+    mongoose.connect(dbURI);
+    const db = mongoose.connection
 
-router.get('/jwt-test', middleware.verify , (req, res) => {
-    res.status(200).json(req.user)
-})
+    // app.get('/', (req, res, next) => {
+    //     res.send(req.user);
+    // })
 
-function generateToken(user){
-    return jwt.sign({data: user}, tokenSecret, {expiresIn: '24h'})
-}
+    db.on("error", (err)=>{console.error(err)});
+    db.once("open", () => {console.log("DB started successfully")});
 
-app.use('/api', router);
+    app.listen(port, () => {
+        console.log("Server started: ", port);
+    });
 
-mongoose.connect(dbURI);
-const db = mongoose.connection
-
-db.on("error", (err)=>{console.error(err)})
-db.once("open", () => {console.log("DB started successfully")})
-
-app.listen(2400, () => {console.log("Server started: 2400")})
+})()
