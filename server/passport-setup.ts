@@ -2,7 +2,7 @@ import passport from 'passport';
 import { Strategy as LocalStrategy } from 'passport-local';
 import { BasicStrategy } from 'passport-http';
 import BCrypt from 'bcrypt';
-import UserModel from './models/user';
+import { UserModel } from './models/user';
 
 
 export class PassportStrategyInitializer {
