@@ -37,7 +37,7 @@ struct HousePartyApp: App {
                         Text("Checklist")
                     }
                     NavigationView{
-                        PostView()
+                        LiveView()
                     }.tabItem{
                         Image(systemName: "plus.rectangle.fill")
                         Text("New Post")

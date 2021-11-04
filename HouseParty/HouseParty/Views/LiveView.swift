@@ -8,7 +8,7 @@
 import SwiftUI
 
 //Main Post View Menu
-struct PostView: View {
+struct LiveView: View {
     var body: some View {
             VStack(alignment: .center, spacing: 0){
                 LiveButton()
@@ -17,10 +17,10 @@ struct PostView: View {
     }
 }
 
-struct PostView_Previews: PreviewProvider {
+struct LiveView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView{
-            PostView()
+            LiveView()
         }
     }
 }
