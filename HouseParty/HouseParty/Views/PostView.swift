@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-struct ContentView: View {
-    @ObservedObject var viewModel: ContentViewModel
+struct PostView: View {
+    @ObservedObject var viewModel: PostViewModel
     var body: some View {
         NavigationView {
             List(viewModel.postings) { posting in

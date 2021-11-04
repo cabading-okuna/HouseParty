@@ -7,7 +7,7 @@
 
 import Foundation
 
-class ContentViewModel: ObservableObject {
+class PostViewModel: ObservableObject {
     var apiService: ApiService
     @Published var postings = [Posting]()
     
