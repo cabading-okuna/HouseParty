@@ -11,9 +11,7 @@ export default router;
 
 router.post('/login', function (req, res, next) {
     passport.authenticate('local', (err, user, info, status) => {
-        console.log('doing passport stuff');
         if (user) {
-            console.log('passport route success ', user);
             req.logIn(user, err => {
                 if (err) {
                     return res.status(400).json(err);
@@ -22,7 +20,6 @@ router.post('/login', function (req, res, next) {
             })
         }
         else {
-            console.log('passport failed', user, info, status);
             return res.status(400).json(err);
         }
     })(req, res, next);

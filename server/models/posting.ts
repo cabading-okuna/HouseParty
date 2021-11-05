@@ -23,4 +23,4 @@ const postingSchema = new Schema<Posting>({
 
 const PostingModel = model<Posting>('Posting', postingSchema);
 
-export default UserModel;
+export default PostingModel;

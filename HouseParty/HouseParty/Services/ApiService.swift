@@ -6,22 +6,25 @@
 //
 
 import Foundation
+import SwiftUI
 
 class ApiService :  NSObject {
     
-    var cookie:String? = nil
+    
+    let baseUrl = "http://localhost:3000";
     
     enum ApiError: Error {
         case error(String)
     }
     
     struct VoidApiResult:Decodable {
-        var status: String;
-        var error: String;
+        var status: String?;
+        var error: String?;
     }
     
     func sendRequest<T:Decodable>(path: String, type: String, parameters: [String: Any]) async throws -> T {
-        let url = String(format: "http://localhost:3000/api/") + path
+        let url = String(format: baseUrl + "/api/") + path
+        print("apiService: \(type) \(url)")
         guard let serviceUrl = URL(string: url) else { throw ApiError.error("bad url") }
         var request = URLRequest(url: serviceUrl)
         request.httpMethod = type
@@ -30,10 +33,25 @@ class ApiService :  NSObject {
         request.httpBody = httpBody
         request.timeoutInterval = 20
         
-        let (data, urlResponse) = try await URLSession.shared.data(for: request)
+        let config = URLSessionConfiguration.default
+        config.httpCookieAcceptPolicy = .always
+        config.httpShouldSetCookies = true
+        config.httpCookieStorage = HTTPCookieStorage.shared
+        
+        let (data, urlResponse) = try await URLSession(configuration: config).data(for: request)
         
         let result = try JSONDecoder().decode(T.self, from: data);
         return result;
+    }
+    
+    func checkIfLoggedIn() async throws -> VoidApiResult {
+        do {
+            let result:VoidApiResult = try await sendRequest(path:"status", type: "POST", parameters: [:])
+            return result;
+        }
+        catch {
+            throw error;
+        }
     }
     
     func createPosting(newPosting: Posting) async throws -> VoidApiResult {

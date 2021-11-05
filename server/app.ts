@@ -6,6 +6,7 @@ import cookieParser from 'cookie-parser';
 import connectMongo from 'connect-mongo';
 import MongoStore from 'connect-mongo';
 import authRouter from './routes/auth';
+import routes from './routes/posts';
 import passport, { Passport } from 'passport';
 import { PassportStrategyInitializer } from './passport-setup';
 
@@ -32,6 +33,7 @@ const oneWeek = 7 * 1000 * 60 * 60 * 24;
     passportInit.init();
 
     app.use('/api', authRouter);
+    app.use('/api', routes);
 
     mongoose.connect(dbURI);
     const db = mongoose.connection

@@ -20,6 +20,11 @@ struct HousePartyApp: App {
         self.apiService = ApiService()
         self.contentViewModel = ContentViewModel(apiService: self.apiService)
         self.loginViewModel = LoginViewModel(apiService: self.apiService, authenticationService: authenticationService)
+        setup()
+    }
+    
+    func setup() {
+
     }
     
     var body: some Scene {

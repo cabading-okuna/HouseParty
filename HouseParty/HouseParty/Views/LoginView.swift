@@ -52,6 +52,10 @@ struct LoginView: View{
                 .frame(width: 200, height: 60)
                 .background(.black)
                 .cornerRadius(30)
+            }.onAppear {
+                Task.init {
+                    await loginVM.checkIfSignedIn()
+                }
             }
         }.autocapitalization(.none)
             .alert(item: $loginVM.error){ error in

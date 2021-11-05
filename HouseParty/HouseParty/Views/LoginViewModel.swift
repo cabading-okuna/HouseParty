@@ -26,6 +26,17 @@ class LoginViewModel: ObservableObject{
         credentials.email.isEmpty || credentials.password.isEmpty
     }
     
+    func checkIfSignedIn() async {
+        do {
+            let result = try await apiService.checkIfLoggedIn();
+            if (result.status == "loggedin") {
+                authenticationService.isValidated = true;
+            }
+        } catch {
+            print (error)
+        }
+    }
+    
     func signup() async {
         showProgressView = true
         do {

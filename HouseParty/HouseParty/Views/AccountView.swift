@@ -86,8 +86,8 @@ var body: some View {
                     .cornerRadius(30)
                     .padding(.top, 25)
                 }.padding(.vertical,  8.0)
+                .navigationTitle("Account")
             }
-            .navigationBarTitle("Account", displayMode: .inline)
         }.padding(.all, 15.0)
 }
 

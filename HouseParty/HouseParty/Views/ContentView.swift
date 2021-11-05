@@ -17,8 +17,12 @@ struct ContentView: View {
             .task {
                 await viewModel.getPostings()
             }
-        }.navigationTitle("Timeline")
+                
+            Text("Text")
+            .navigationBarTitle("Hey there", displayMode: .inline)
+        }
     }
+    
 }
 
 //struct ContentView_Previews: PreviewProvider {
