@@ -28,6 +28,7 @@
 		635F1DCE2724E25100913339 /* ChecklistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635F1DCD2724E25100913339 /* ChecklistView.swift */; };
 		635F1DD02724E2D900913339 /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635F1DCF2724E2D900913339 /* PostView.swift */; };
 		6380BA63272E82FA000505FC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6380BA62272E82FA000505FC /* LaunchScreen.storyboard */; };
+		63D8F97027351D3700A69103 /* CreatePostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D8F96F27351D3700A69103 /* CreatePostModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,7 @@
 		635F1DCD2724E25100913339 /* ChecklistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistView.swift; sourceTree = "<group>"; };
 		635F1DCF2724E2D900913339 /* PostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
 		6380BA62272E82FA000505FC /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		63D8F96F27351D3700A69103 /* CreatePostModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +125,7 @@
 				53102A632727D6250058E37A /* ContentViewModel.swift */,
 				6380BA62272E82FA000505FC /* LaunchScreen.storyboard */,
 				63388A91272F43C1009633ED /* LoginViewModel.swift */,
+				63D8F96F27351D3700A69103 /* CreatePostModel.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -337,6 +340,7 @@
 				537087A22734F457003A5EB7 /* User.swift in Sources */,
 				63388A96272F5917009633ED /* AuthenticationService.swift in Sources */,
 				63388A94272F55E1009633ED /* LoginView.swift in Sources */,
+				63D8F97027351D3700A69103 /* CreatePostModel.swift in Sources */,
 				53102A622727D1900058E37A /* ApiService.swift in Sources */,
 				53102A642727D6250058E37A /* ContentViewModel.swift in Sources */,
 				635F1DD02724E2D900913339 /* PostView.swift in Sources */,
