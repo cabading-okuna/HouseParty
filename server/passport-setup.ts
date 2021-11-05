@@ -39,7 +39,6 @@ export class PassportStrategyInitializer {
 
     passport.deserializeUser(async (id, done) => {
       try {
-        console.log('passport deserialize user', id);
         var user = await UserModel.findOne({ _id: id }).exec();
         return done(null, user);
       } catch (err) {

@@ -20,6 +20,10 @@ struct ContentView: View {
                 
             Text("Text")
             .navigationBarTitle("Hey there", displayMode: .inline)
+        }.refreshable {
+            Task.init{
+                await viewModel.getPostings()
+            }
         }
     }
     

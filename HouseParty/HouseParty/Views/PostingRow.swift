@@ -28,9 +28,9 @@ struct PostingRow: View {
                 .foregroundColor(.white)
 
             HStack {
-                Text(posting.postHeading)
+                Text(posting.body)
                 Spacer()
-                Text(posting.postBody)
+                Text(posting.title)
                 Spacer()
             }
         }
@@ -41,7 +41,7 @@ struct PostingRow: View {
 }
 
 struct PostingRow_Previews: PreviewProvider {
-    static var posting = Posting(id: "abc", userId: "123", postBody: "hello", postHeading: "test", postedTime: Date())
+    static var posting = Posting(_id: "abc", userId: "123", body: "hello", title: "test", date: 0)
     static var previews: some View {
         PostingRow(posting: posting)
     }

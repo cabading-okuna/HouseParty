@@ -29,6 +29,8 @@ struct HousePartyApp: App {
     }
     
     var body: some Scene {
+        let createPostVM = CreatePostViewModel(apiService: self.apiService)
+        let createPostView = CreatePostView(vm: createPostVM, posting: Posting())
         WindowGroup {
             if authenticationService.isValidated{
                 TabView{
@@ -39,25 +41,25 @@ struct HousePartyApp: App {
                         Text("Timeline")
                     }
                     NavigationView{
-                        ChecklistView()
+                        ChecklistTabView()
                     }.tabItem{
                         Image(systemName: "checkmark")
                         Text("Checklist")
                     }
                     NavigationView{
-                        PostView()
+                        CreatePostTabView(createPostView: createPostView)
                     }.tabItem{
                         Image(systemName: "plus.rectangle.fill")
                         Text("New Post")
                     }
                     NavigationView{
-                        ScheduleView()
+                        ScheduleTabView()
                     }.tabItem{
                         Image(systemName: "calendar")
                         Text("Schedule")
                     }
                     NavigationView{
-                        AccountView()
+                        AccountTabView()
                     }.tabItem{
                         Image(systemName: "person.crop.circle")
                         Text("Account")

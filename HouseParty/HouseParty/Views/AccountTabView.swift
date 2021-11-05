@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct AccountView: View {
+struct AccountTabView: View {
     @State private var enableNotification: Bool = true
     @EnvironmentObject var authentication: AuthenticationService
     
@@ -94,7 +94,7 @@ var body: some View {
 struct AccountView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView{
-            AccountView()
+            AccountTabView()
         }
     }
 }

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ScheduleView: View {
+struct ScheduleTabView: View {
     var body: some View {
         ScrollView{
             DatePicker(selection: .constant(Date()), label: { /*@START_MENU_TOKEN@*/Text("Date")/*@END_MENU_TOKEN@*/ })
@@ -20,7 +20,7 @@ struct ScheduleView: View {
 struct ScheduleView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView{
-            ScheduleView()
+            ScheduleTabView()
         }
     }
 }

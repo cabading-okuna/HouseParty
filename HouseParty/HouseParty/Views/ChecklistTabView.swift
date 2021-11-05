@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ChecklistView: View {
+struct ChecklistTabView: View {
     var body: some View {
         ScrollView{
             VStack(alignment: .center, spacing: 0){
@@ -24,7 +24,7 @@ struct ChecklistView: View {
 struct ChecklistView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView{
-            ChecklistView()
+            ChecklistTabView()
         }
     }
 }

@@ -8,7 +8,11 @@ import PostingModel from '../models/posting';
 let router = Router();
 export default router;
 
-type VoidApiResult = {
+class VoidApiResult {
+    constructor(status, error) {
+        this.status = status;
+        this.error = error;
+    }
     status: String;
     error: String;
 }
@@ -27,5 +31,16 @@ router.post('/postings', async (req, res, next) => {
         console.log(postings);
         res.send(postings);
     } else {
+    }
+});
+
+router.post('/postings/new', async (req, res, next) => {
+    if (req.isAuthenticated()) {
+        console.log("new posting", req.body.posting);
+        let posting = new PostingModel(req.body.posting);
+        await posting.save()
+        res.send(new VoidApiResult("ok", ""));
+    } else {
+
     }
 })

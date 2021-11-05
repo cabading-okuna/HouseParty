@@ -6,14 +6,24 @@ import mongoose from 'mongoose';
 
 interface Posting {
     _id: ObjectId;
-    author: User;
-    post: string;
+    userId: User;
+    body: string;
+    title: string;
+    date: Date
 }
 
 const postingSchema = new Schema<Posting>({
-    post: {
+    body: {
         type: String,
         required: true
+    },
+    title: {
+        type: String,
+        required: true
+    },
+    userId: {
+    },
+    date: {
     },
     // author: {
     //     type: User,

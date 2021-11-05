@@ -22,15 +22,16 @@ class ApiService :  NSObject {
         var error: String?;
     }
     
-    func sendRequest<T:Decodable>(path: String, type: String, parameters: [String: Any]) async throws -> T {
+    func sendRequest<T:Decodable, D:Codable>(path: String, type: String, parameters: [String: D]) async throws -> T {
         let url = String(format: baseUrl + "/api/") + path
         print("apiService: \(type) \(url)")
         guard let serviceUrl = URL(string: url) else { throw ApiError.error("bad url") }
         var request = URLRequest(url: serviceUrl)
         request.httpMethod = type
         request.setValue("Application/json", forHTTPHeaderField: "Content-Type")
-        guard let httpBody = try? JSONSerialization.data(withJSONObject: parameters, options: []) else { throw ApiError.error("could not serialize data") }
-        request.httpBody = httpBody
+        let jsonData = try! JSONEncoder().encode(parameters)
+
+        request.httpBody = jsonData
         request.timeoutInterval = 20
         
         let config = URLSessionConfiguration.default
@@ -46,7 +47,7 @@ class ApiService :  NSObject {
     
     func checkIfLoggedIn() async throws -> VoidApiResult {
         do {
-            let result:VoidApiResult = try await sendRequest(path:"status", type: "POST", parameters: [:])
+            let result:VoidApiResult = try await sendRequest(path:"status", type: "POST", parameters: ["":""])
             return result;
         }
         catch {
@@ -56,7 +57,7 @@ class ApiService :  NSObject {
     
     func createPosting(newPosting: Posting) async throws -> VoidApiResult {
         do {
-            let result:VoidApiResult = try await sendRequest(path:"postings/new", type: "POST", parameters: [:])
+            let result:VoidApiResult = try await sendRequest(path:"postings/new", type: "POST", parameters: ["posting":newPosting])
             return result;
         }
         catch {
@@ -66,7 +67,7 @@ class ApiService :  NSObject {
     
     func getPostings() async throws -> [Posting] {
         do {
-            let result:[Posting] = try await sendRequest(path:"postings/get", type:"POST", parameters:[:])
+            let result:[Posting] = try await sendRequest(path:"postings/get", type:"POST", parameters: ["":""])
             return result;
         }
         catch {

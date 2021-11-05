@@ -16,5 +16,9 @@ struct PostTabView: View {
             .task {
                 await viewModel.getPostings()
             }
+        }.refreshable {
+            Task.init{
+                await viewModel.getPostings()
+            }
         }.navigationTitle("Timeline")
     }}

@@ -8,9 +8,10 @@
 import Foundation
 
 struct Posting: Codable, Identifiable {
-    var id: String
-    var userId: String
-    var postBody: String
-    var postHeading: String
-    var postedTime: Date
+    var id: String? { _id }
+    var _id: String?
+    var userId: String = ""
+    var body: String = ""
+    var title: String = ""
+    var date: Int = 0
 }
