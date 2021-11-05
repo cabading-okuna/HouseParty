@@ -13,30 +13,17 @@ struct PostingRow: View {
     var body: some View {
         VStack{
             HStack {
-                Image(systemName: "user.circle.fill")
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .frame(width: 50, height: 50)
-                Text("Houseparty Username")
-                    .foregroundColor(.white)
-                    .fontWeight(.bold)
-            }
-            Image(systemName: "photo")
-                .renderingMode(.template)
-                .resizable()
-                .frame(width: 18, height: 18)
-                .foregroundColor(.white)
-
-            HStack {
-                Text(posting.body)
-                Spacer()
-                Text(posting.title)
+                Label("user", systemImage: "person")
+                VStack {
+                    Text(posting.title)
+                        .font(.headline)
+                    Text(posting.body)
+                }
+                .padding()
                 Spacer()
             }
         }
         .padding()
-        .background(.white.opacity(0.05))
-        .cornerRadius(15)
     }
 }
 
@@ -44,5 +31,6 @@ struct PostingRow_Previews: PreviewProvider {
     static var posting = Posting(_id: "abc", userId: "123", body: "hello", title: "test", date: 0)
     static var previews: some View {
         PostingRow(posting: posting)
+            .previewLayout(.fixed(width: 400, height: 60))
     }
 }

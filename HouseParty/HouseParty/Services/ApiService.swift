@@ -67,7 +67,7 @@ class ApiService :  NSObject {
     
     func getPostings() async throws -> [Posting] {
         do {
-            let result:[Posting] = try await sendRequest(path:"postings/get", type:"POST", parameters: ["":""])
+            let result:[Posting] = try await sendRequest(path:"postings", type:"POST", parameters: ["":""])
             return result;
         }
         catch {
