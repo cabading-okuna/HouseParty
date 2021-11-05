@@ -9,7 +9,7 @@ import SwiftUI
 
 struct LoginView: View{
     @ObservedObject var loginVM: LoginViewModel
-    @EnvironmentObject var authentication:  Authentication
+    @EnvironmentObject var authentication:  AuthenticationService
     
     var body: some View{
         ZStack{
@@ -28,9 +28,9 @@ struct LoginView: View{
                 if loginVM.showProgressView{
                     ProgressView()
                 }
-                Button("SIGN UP"){
-                    loginVM.signup { success in
-                        authentication.updateValidation(success: success)
+                Button("SIGN UP") {
+                    Task.init {
+                        await loginVM.signup()
                     }
                 }
                 .font(.headline)
@@ -41,8 +41,8 @@ struct LoginView: View{
                 .background(.black)
                 .cornerRadius(30)
                 Button("SIGN IN"){
-                    loginVM.login { success in
-                        authentication.updateValidation(success: success)
+                    Task.init {
+                        await loginVM.login()
                     }
                 }
                 .font(.headline)

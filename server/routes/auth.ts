@@ -26,23 +26,6 @@ router.post('/login', function (req, res, next) {
             return res.status(400).json(err);
         }
     })(req, res, next);
-    // try {
-    //     let user = await UserModel.findOne({ email: req.body.email }).exec();
-    //     if (!user) res.status(404).json({ error: 'no user with that email found' });
-    //     else {
-    //         bcrypt.compare(req.body.password, user.password, (error, match) => {
-    //             if (error) res.status(500).json(error);
-    //             else if (match) {
-    //                 console.log(user);
-    //                 res.status(200).json({ token: generateToken(user) });
-    //             }
-    //             else res.status(403).json({ error: 'passwords do not match' });
-    //         })
-    //     }
-    // }
-    // catch (error) {
-    //     res.status(500).json(error);
-    // }
 });
 
 router.post('/signup', (req, res) => {

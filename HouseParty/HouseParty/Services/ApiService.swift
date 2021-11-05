@@ -8,51 +8,72 @@
 import Foundation
 
 class ApiService :  NSObject {
-    static let shared = ApiService()
     
-    func getPostings() async -> [Posting] {
-        var posting1 = Posting(id: "123", userId: "abc", postBody: "this is a test", postHeading: "this is a heading", postedTime: Date())
-        return [posting1]
+    var cookie:String? = nil
+    
+    enum ApiError: Error {
+        case error(String)
     }
     
-    func sendRequest(path: String, type: String, parameters: [String: Any], completion: @escaping(Result<Bool, Authentication.AuthenticationError>) -> Void) {
-        let Url = String(format: "http://localhost:2400/api/") + path
-        guard let serviceUrl = URL(string: Url) else { return }
+    struct VoidApiResult:Decodable {
+        var status: String;
+        var error: String;
+    }
+    
+    func sendRequest<T:Decodable>(path: String, type: String, parameters: [String: Any]) async throws -> T {
+        let url = String(format: "http://localhost:3000/api/") + path
+        guard let serviceUrl = URL(string: url) else { throw ApiError.error("bad url") }
         var request = URLRequest(url: serviceUrl)
         request.httpMethod = type
         request.setValue("Application/json", forHTTPHeaderField: "Content-Type")
-        guard let httpBody = try? JSONSerialization.data(withJSONObject: parameters, options: []) else {
-            return
-        }
+        guard let httpBody = try? JSONSerialization.data(withJSONObject: parameters, options: []) else { throw ApiError.error("could not serialize data") }
         request.httpBody = httpBody
         request.timeoutInterval = 20
-        let session = URLSession.shared
-        session.dataTask(with: request) { (data, response, error) in
-            if let response = response {
-                print(response)
-            }
-            if let data = data {
-                do {
-                    let json = try JSONSerialization.jsonObject(with: data, options: [])
-                    completion(.success(true));
-                    print(json)
-                } catch {
-                    print(error)
-                    completion(.failure(.invalidCredentials));
-                }
-            }
-        }.resume()
-
         
-    }
-    func signUp(email:String,password:String, completion: @escaping(Result<Bool, Authentication.AuthenticationError>) -> Void) {
-        sendRequest(path:"signup", type:"POST", parameters:[ "email": email, "password": password ], completion:completion)
+        let (data, urlResponse) = try await URLSession.shared.data(for: request)
+        
+        let result = try JSONDecoder().decode(T.self, from: data);
+        return result;
     }
     
-    func login(credentials: Credentials,
-               completion: @escaping (Result<Bool,Authentication.AuthenticationError>) -> Void){
-        sendRequest(path: "login", type: "POST", parameters: ["email":credentials.email, "password": credentials.password], completion: completion)
-  
+    func createPosting(newPosting: Posting) async throws -> VoidApiResult {
+        do {
+            let result:VoidApiResult = try await sendRequest(path:"postings/new", type: "POST", parameters: [:])
+            return result;
+        }
+        catch {
+            throw error;
+        }
+    }
+    
+    func getPostings() async throws -> [Posting] {
+        do {
+            let result:[Posting] = try await sendRequest(path:"postings/get", type:"POST", parameters:[:])
+            return result;
+        }
+        catch {
+            throw error;
+        }
+    }
+    
+    func signUp(email:String, password:String) async throws -> User {
+        do {
+            let result:User = try await sendRequest(path:"signup", type:"POST", parameters:[ "email": email, "password": password ])
+            return result;
+        }
+        catch {
+            throw error;
+        }
+    }
+    
+    func login(email:String, password:String) async throws -> User {
+        do {
+            let result:User = try await sendRequest(path:"login", type:"POST", parameters:[ "email": email, "password": password ])
+            return result;
+        }
+        catch {
+            throw error;
+        }
     }
     
 }

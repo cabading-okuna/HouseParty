@@ -9,7 +9,7 @@ import SwiftUI
 
 struct AccountView: View {
     @State private var enableNotification: Bool = true
-    @EnvironmentObject var authentication: Authentication
+    @EnvironmentObject var authentication: AuthenticationService
     
 var body: some View {
         ScrollView{

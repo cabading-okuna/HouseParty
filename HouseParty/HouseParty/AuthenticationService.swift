@@ -8,8 +8,8 @@
 import Foundation
 import SwiftUI
 
-class Authentication: ObservableObject{
-    @Published var isValidated = false
+class AuthenticationService: ObservableObject{
+    @EnvironmentObject var isValidated = false
     enum AuthenticationError: Error, LocalizedError, Identifiable {
         case invalidCredentials
         case duplicateEmail
@@ -26,6 +26,7 @@ class Authentication: ObservableObject{
             }
         }
     }
+    
     func updateValidation(success: Bool){
         withAnimation{
             isValidated = success

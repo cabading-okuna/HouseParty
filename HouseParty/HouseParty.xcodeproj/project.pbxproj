@@ -11,6 +11,7 @@
 		53102A5F2727BD9D0058E37A /* PostingRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53102A5E2727BD9D0058E37A /* PostingRow.swift */; };
 		53102A622727D1900058E37A /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53102A612727D1900058E37A /* ApiService.swift */; };
 		53102A642727D6250058E37A /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53102A632727D6250058E37A /* ContentViewModel.swift */; };
+		537087A22734F457003A5EB7 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537087A12734F457003A5EB7 /* User.swift */; };
 		53C7A23F270988FA007DB2AE /* HousePartyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C7A23E270988FA007DB2AE /* HousePartyApp.swift */; };
 		53C7A241270988FA007DB2AE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C7A240270988FA007DB2AE /* ContentView.swift */; };
 		53C7A243270988FC007DB2AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 53C7A242270988FC007DB2AE /* Assets.xcassets */; };
@@ -21,7 +22,7 @@
 		63388A90272F4205009633ED /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63388A8F272F4205009633ED /* Credentials.swift */; };
 		63388A92272F43C1009633ED /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63388A91272F43C1009633ED /* LoginViewModel.swift */; };
 		63388A94272F55E1009633ED /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63388A93272F55E1009633ED /* LoginView.swift */; };
-		63388A96272F5917009633ED /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63388A95272F5917009633ED /* Authentication.swift */; };
+		63388A96272F5917009633ED /* AuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63388A95272F5917009633ED /* AuthenticationService.swift */; };
 		635F1DCA2724DBF800913339 /* ScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635F1DC92724DBF800913339 /* ScheduleView.swift */; };
 		635F1DCC2724DE5D00913339 /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635F1DCB2724DE5D00913339 /* AccountView.swift */; };
 		635F1DCE2724E25100913339 /* ChecklistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635F1DCD2724E25100913339 /* ChecklistView.swift */; };
@@ -52,6 +53,7 @@
 		53102A612727D1900058E37A /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
 		53102A632727D6250058E37A /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
 		53102A652727EE860058E37A /* server */ = {isa = PBXFileReference; lastKnownFileType = folder; name = server; path = ../server; sourceTree = "<group>"; };
+		537087A12734F457003A5EB7 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		53C7A23B270988FA007DB2AE /* HouseParty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HouseParty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		53C7A23E270988FA007DB2AE /* HousePartyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HousePartyApp.swift; sourceTree = "<group>"; };
 		53C7A240270988FA007DB2AE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -65,7 +67,7 @@
 		63388A8F272F4205009633ED /* Credentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
 		63388A91272F43C1009633ED /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		63388A93272F55E1009633ED /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
-		63388A95272F5917009633ED /* Authentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
+		63388A95272F5917009633ED /* AuthenticationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationService.swift; sourceTree = "<group>"; };
 		635F1DC92724DBF800913339 /* ScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleView.swift; sourceTree = "<group>"; };
 		635F1DCB2724DE5D00913339 /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
 		635F1DCD2724E25100913339 /* ChecklistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistView.swift; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 			children = (
 				53102A5B2727BCFC0058E37A /* Posting.swift */,
 				63388A8F272F4205009633ED /* Credentials.swift */,
+				537087A12734F457003A5EB7 /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -160,7 +163,7 @@
 				53102A5D2727BD620058E37A /* Views */,
 				53102A5A2727BCDF0058E37A /* Models */,
 				53C7A23E270988FA007DB2AE /* HousePartyApp.swift */,
-				63388A95272F5917009633ED /* Authentication.swift */,
+				63388A95272F5917009633ED /* AuthenticationService.swift */,
 				53C7A242270988FC007DB2AE /* Assets.xcassets */,
 				53C7A244270988FC007DB2AE /* Preview Content */,
 			);
@@ -331,7 +334,8 @@
 				53102A5F2727BD9D0058E37A /* PostingRow.swift in Sources */,
 				63388A90272F4205009633ED /* Credentials.swift in Sources */,
 				63388A92272F43C1009633ED /* LoginViewModel.swift in Sources */,
-				63388A96272F5917009633ED /* Authentication.swift in Sources */,
+				537087A22734F457003A5EB7 /* User.swift in Sources */,
+				63388A96272F5917009633ED /* AuthenticationService.swift in Sources */,
 				63388A94272F55E1009633ED /* LoginView.swift in Sources */,
 				53102A622727D1900058E37A /* ApiService.swift in Sources */,
 				53102A642727D6250058E37A /* ContentViewModel.swift in Sources */,

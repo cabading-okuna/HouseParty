@@ -9,20 +9,22 @@ import SwiftUI
 
 @main
 struct HousePartyApp: App {
-    @StateObject var authentication =  Authentication()
+    var authenticationService: AuthenticationService
     var apiService: ApiService
     var contentViewModel: ContentViewModel
     var loginViewModel: LoginViewModel
     
     init() {
+        var authenticationService = AuthenticationService()
         self.apiService = ApiService()
         self.contentViewModel = ContentViewModel(apiService: self.apiService)
-        self.loginViewModel = LoginViewModel(apiService: self.apiService)
+        self.authenticationService = authenticationService
+        self.loginViewModel = LoginViewModel(apiService: self.apiService, authenticationService: authenticationService)
     }
     
     var body: some Scene {
         WindowGroup {
-            if authentication.isValidated{
+            if authenticationService.isValidated{
                 TabView{
                     NavigationView{
                         ContentView(viewModel: contentViewModel)
@@ -54,10 +56,10 @@ struct HousePartyApp: App {
                         Image(systemName: "person.crop.circle")
                         Text("Account")
                     }
-                } .environmentObject(authentication)
+                } .environmentObject(authenticationService)
             } else {
                 LoginView(loginVM: loginViewModel)
-                    .environmentObject(authentication)
+                    .environmentObject(authenticationService)
             }
         }
     }

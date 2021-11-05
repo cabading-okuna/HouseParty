@@ -16,7 +16,11 @@ class ContentViewModel: ObservableObject {
     }
     
     func getPostings() async {
-        postings = await apiService.getPostings();
+        do {
+            postings = try await apiService.getPostings();
+        } catch {
+            print(error)
+        }
     }
     
 }

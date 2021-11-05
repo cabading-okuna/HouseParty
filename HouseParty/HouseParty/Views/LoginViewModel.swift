@@ -7,49 +7,44 @@
 
 import Foundation
 
+@MainActor
 class LoginViewModel: ObservableObject{
     
     @Published var credentials = Credentials()
     @Published var showProgressView = false
-    @Published var error: Authentication.AuthenticationError?
+    @Published var error: AuthenticationService.AuthenticationError?
     
     var apiService: ApiService
+    var authenticationService: AuthenticationService
     
-    init(apiService:ApiService) {
+    init(apiService:ApiService, authenticationService:AuthenticationService) {
         self.apiService = apiService
+        self.authenticationService = authenticationService
     }
     
     var signinDisabled: Bool {
         credentials.email.isEmpty || credentials.password.isEmpty
     }
     
-    func signup(completion: @escaping (Bool) -> Void){
-    showProgressView = true
-        apiService.signUp(email: credentials.email, password: credentials.password) { [unowned self] (result:Result<Bool, Authentication.AuthenticationError>) in
-        showProgressView = false
-            switch result{
-            case .success:
-                completion(true)
-            case .failure(let urlError):
-                credentials = Credentials()
-                error = urlError
-                completion(false)
-            }
+    func signup() async {
+        showProgressView = true
+        do {
+            let result = try await apiService.signUp(email: credentials.email, password: credentials.password)
+            authenticationService.updateValidation(success: true);
+            showProgressView = false
+        } catch {
+            print(error)
         }
     }
-    
-    func login(completion: @escaping (Bool) -> Void){
-    showProgressView = true
-        apiService.login(credentials: credentials) { [unowned self] (result:Result<Bool, Authentication.AuthenticationError>) in
-        showProgressView = false
-            switch result{
-            case .success:
-                completion(true)
-            case .failure(let authError):
-                credentials = Credentials()
-                error = authError
-                completion(false)
-            }
+
+    func login() async {
+        showProgressView = true
+        do {
+            let result = try await apiService.login(email: credentials.email, password: credentials.password)
+            authenticationService.updateValidation(success: true);
+            showProgressView = false
+        } catch {
+            print(error)
         }
     }
 }
