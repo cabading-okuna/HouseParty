@@ -9,8 +9,9 @@ import SwiftUI
 
 struct AccountView: View {
     @State private var enableNotification: Bool = true
-    @EnvironmentObject var authentication: AuthenticationService
-    
+    @ObservedObject var loginVM: LoginViewModel
+    @EnvironmentObject var authentication:  AuthenticationService
+
 var body: some View {
         ScrollView{
             VStack(alignment: .center, spacing: 0){
@@ -75,7 +76,9 @@ var body: some View {
                 }.padding(.top,  8.0)
                 Section{
                     Button("SIGN OUT") {
-                        authentication.updateValidation(success: false)
+                        Task.init {
+                            await loginVM.signup()
+                        }
                     }
                     .multilineTextAlignment(.center)
                     .foregroundColor(.white)
@@ -89,13 +92,5 @@ var body: some View {
             }
             .navigationBarTitle("Account", displayMode: .inline)
         }.padding(.all, 15.0)
-}
-
-struct AccountView_Previews: PreviewProvider {
-    static var previews: some View {
-        NavigationView{
-            AccountView()
-        }
-    }
 }
 }

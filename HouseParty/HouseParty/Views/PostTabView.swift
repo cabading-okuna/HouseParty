@@ -10,11 +10,13 @@ struct PostTabView: View {
     @ObservedObject var viewModel: PostViewModel
     var body: some View {
         NavigationView {
+            
             List(viewModel.postings) { posting in
                 PostingRow(posting: posting)
             }
             .task {
                 await viewModel.getPostings()
             }
-        }.navigationTitle("Timeline")
-    }}
+        }.navigationBarTitle("Timeline", displayMode: .inline)
+    }
+}

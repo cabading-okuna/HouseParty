@@ -52,7 +52,7 @@ struct HousePartyApp: App {
                         Text("Schedule")
                     }
                     NavigationView{
-                        AccountView()
+                        AccountView(loginVM: loginViewModel)
                     }.tabItem{
                         Image(systemName: "person.crop.circle")
                         Text("Account")
