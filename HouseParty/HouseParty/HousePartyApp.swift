@@ -9,16 +9,16 @@ import SwiftUI
 
 @main
 struct HousePartyApp: App {
-    var authenticationService: AuthenticationService
+    @ObservedObject var authenticationService: AuthenticationService
     var apiService: ApiService
     var contentViewModel: ContentViewModel
     var loginViewModel: LoginViewModel
     
     init() {
         var authenticationService = AuthenticationService()
+        self.authenticationService = authenticationService
         self.apiService = ApiService()
         self.contentViewModel = ContentViewModel(apiService: self.apiService)
-        self.authenticationService = authenticationService
         self.loginViewModel = LoginViewModel(apiService: self.apiService, authenticationService: authenticationService)
     }
     
@@ -56,10 +56,9 @@ struct HousePartyApp: App {
                         Image(systemName: "person.crop.circle")
                         Text("Account")
                     }
-                } .environmentObject(authenticationService)
+                }
             } else {
                 LoginView(loginVM: loginViewModel)
-                    .environmentObject(authenticationService)
             }
         }
     }
