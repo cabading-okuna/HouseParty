@@ -11,14 +11,15 @@ import SwiftUI
 struct HousePartyApp: App {
     @ObservedObject var authenticationService: AuthenticationService
     var apiService: ApiService
-    var contentViewModel: ContentViewModel
+    var postViewModel: PostViewModel
     var loginViewModel: LoginViewModel
     
     init() {
         var authenticationService = AuthenticationService()
         self.authenticationService = authenticationService
         self.apiService = ApiService()
-        self.contentViewModel = ContentViewModel(apiService: self.apiService)
+        // self.contentViewModel = ContentViewModel(apiService: self.apiService)
+        self.postViewModel = PostViewModel(apiService: self.apiService)
         self.loginViewModel = LoginViewModel(apiService: self.apiService, authenticationService: authenticationService)
         setup()
     }
@@ -32,7 +33,7 @@ struct HousePartyApp: App {
             if authenticationService.isValidated{
                 TabView{
                     NavigationView{
-                        ContentView(viewModel: contentViewModel)
+                        PostTabView(viewModel: postViewModel)
                     }.tabItem{
                         Image(systemName: "house.fill")
                         Text("Timeline")
