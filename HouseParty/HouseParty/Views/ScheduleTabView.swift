@@ -19,7 +19,12 @@ struct ScheduleTabView: View {
             Divider()
             HStack(alignment: .center){
                 Image(systemName: "house")
-                Text("HouseParty! IN 3 DAYS").foregroundColor(Color.gray)
+                    .padding(.trailing)
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 5.0, height: 5.0)
+                Text("4").font(.title)
+                Spacer()
+                Text("HouseParty! IN 3 DAYS at 6:30pm").foregroundColor(Color.gray)
             }
             .padding()
             .navigationBarTitle("Schedule", displayMode: .inline)
