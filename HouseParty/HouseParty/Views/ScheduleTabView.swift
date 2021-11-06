@@ -10,8 +10,19 @@ import SwiftUI
 struct ScheduleTabView: View {
     var body: some View {
         ScrollView{
-            DatePicker(selection: .constant(Date()), label: { /*@START_MENU_TOKEN@*/Text("Date")/*@END_MENU_TOKEN@*/ })
-                .navigationBarTitle("Schedule", displayMode: .inline)
+            DatePicker(selection: .constant(Date()), label: { Text("Today") })
+            Divider()
+            Button(action: {}){
+                Text("Schedule a HouseParty!")
+                Image(systemName: "plus")
+            }
+            Divider()
+            HStack(alignment: .center){
+                Image(systemName: "house")
+                Text("HouseParty! IN 3 DAYS").foregroundColor(Color.gray)
+            }
+            .padding()
+            .navigationBarTitle("Schedule", displayMode: .inline)
             
         }.padding(.all, 15.0)
     }
