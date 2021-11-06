@@ -9,15 +9,30 @@ import SwiftUI
 
 struct ChecklistTabView: View {
     var body: some View {
-        ScrollView{
+        NavigationView{
             VStack(alignment: .center, spacing: 0){
-            Text("Checklist will go here")
-                .navigationBarTitle("Checklist", displayMode: .inline)
-                
-                
-                
+                HStack{
+                Button(action: {}){
+                    Text("Add New Task")
+                    Image(systemName: "plus")
+                }
+                }
+            List{
+                Text("Walk the dog")
+                Text("Water the plants")
+                Text("Make breakfast")
+                Text("Buy 2 bags of potato chips")
+                Text("Buy 3 onions and 5 tomatoes")
+                Text("Do Laundry")
+                Text("Chem Homework #13")
+                Text("CompSci Assignment 5")
+                Text("Call mom back")
+                Text("Register for classes")
             }
-        }.padding(.all, 15.0)
+            }
+            .navigationBarTitle("Checklist", displayMode: .inline)
+            .padding(.all, 15.0)
+        }
     }
 }
 

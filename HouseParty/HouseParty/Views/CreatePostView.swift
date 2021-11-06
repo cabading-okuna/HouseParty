@@ -15,6 +15,9 @@ struct CreatePostView: View {
     var body: some View {
         VStack {
             HStack{
+                Button("Cancel") {
+ 
+                }
                 Spacer()
                 Button("Post") {
                     Task.init {
@@ -24,10 +27,20 @@ struct CreatePostView: View {
             }
             Section(header: Text("Title")) {
                 TextField("Title...", text: $vm.post.title)
+                    .padding()
+                    .background(.white)
+                    .cornerRadius(6)
+                    .padding(.bottom)
             }
+          
+            
             Section(header: Text("Post")) {
                 TextEditor(text: $vm.post.body)
+                    .cornerRadius(6)
             }
-        }.navigationTitle("New Post")
-    }
+            .padding()
+        }
+        .padding()
+        .navigationTitle("New Post")
+        .background(LinearGradient(gradient: Gradient(colors: [.white, .gray]), startPoint: .top, endPoint: .bottom))    }
 }
