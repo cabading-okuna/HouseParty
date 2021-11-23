@@ -2,7 +2,7 @@ import express, { Router } from 'express'
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import { UserModel } from '../models/user';
-// Import Checklist Model here
+import ChecklistModel from '../models/checklistTasks';
 
 let router = Router();
 export default router;
@@ -27,18 +27,18 @@ router.post('/status', (req, res, next) => {
 
 router.post('/checklists', async (req, res, next) => {
     if (req.isAuthenticated()) {
-        // let checklists = await ChecklistModel.find().exec();
-        // console.log(checklists);
-        // res.send(checklists);
+        let checklists = await ChecklistModel.find().exec();
+        console.log(checklists);
+        res.send(checklists);
     } else {
     }
 });
 
 router.post('/checklists/new', async (req, res, next) => {
     if (req.isAuthenticated()) {
-        // console.log("new checklist", req.body.checklist);
-        // let checklist = new ChecklistModel(req.body.checklist);
-        // await checklist.save()
+        console.log("new checklist", req.body.checklist);
+        let checklist = new ChecklistModel(req.body.checklist);
+        await checklist.save()
         res.send(new VoidApiResult("ok", ""));
     } else {
 

@@ -24,6 +24,6 @@ const checklistTaskSchema = new Schema<ChecklistTasks>({
     },
 });
 
-// const ChecklistModel = model<Checklist>('Checklist', checklistTaskSchema);
+const ChecklistModel = model<ChecklistTasks>('ChecklistTasks', checklistTaskSchema);
 
-// export default ChecklistModel;
+export default ChecklistModel;
