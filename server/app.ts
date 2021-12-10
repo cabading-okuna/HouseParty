@@ -7,6 +7,7 @@ import connectMongo from 'connect-mongo';
 import MongoStore from 'connect-mongo';
 import authRouter from './routes/auth';
 import routes from './routes/posts';
+import routed from './routes/list';
 import passport, { Passport } from 'passport';
 import { PassportStrategyInitializer } from './passport-setup';
 
