@@ -15,6 +15,7 @@ struct CreateChecklistView: View {
     var body: some View {
         VStack {
             HStack{
+                Spacer()
                 Button("Add Task") {
                     Task.init {
                         await vm.save()
@@ -33,10 +34,6 @@ struct CreateChecklistView: View {
             Section(header: Text("Notes")) {
                 TextEditor(text: $vm.checklist.notes)
                     .cornerRadius(6)
-            }
-            .padding()
-            Section(header: Text("Due Date")) {
-                //Date Picker here
             }
             .padding()
         }

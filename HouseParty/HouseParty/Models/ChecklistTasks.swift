@@ -13,5 +13,4 @@ struct ChecklistTasks: Codable, Identifiable {
     var userId: String = ""
     var task: String = ""
     var notes: String = ""
-    var date: String = ""
 }

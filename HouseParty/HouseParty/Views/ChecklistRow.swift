@@ -16,8 +16,6 @@ struct ChecklistRow: View {
                 VStack {
                     Text(checklistTasks.task)
                         .font(.headline)
-                    Spacer()
-                    Text(checklistTasks.date)
                 }
                 Spacer()
                 VStack {
@@ -33,7 +31,7 @@ struct ChecklistRow: View {
 }
 
 struct ChecklistRow_Previews: PreviewProvider {
-    static var checklistTasks = ChecklistTasks(_id: "abc", userId: "123", task: "Task #1", notes: "This is sample note 1", date: "21, Dec 10")
+    static var checklistTasks = ChecklistTasks(_id: "abc", userId: "123", task: "Task #1", notes: "This is sample note 1")
     static var previews: some View {
         ChecklistRow(checklistTasks: checklistTasks)
             .previewLayout(.fixed(width: 400, height: 60))

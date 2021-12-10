@@ -10,7 +10,13 @@ import SwiftUI
 struct ScheduleTabView: View {
     var body: some View {
         ScrollView{
-            DatePicker(selection: .constant(Date()), label: { Text("Today") })
+            DatePicker(
+                "Today",
+                selection: .constant(Date()),
+                displayedComponents: [.date]
+            )
+            .datePickerStyle(.graphical)
+
             Divider()
             Button(action: {}){
                 Text("Schedule a HouseParty!")

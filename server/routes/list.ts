@@ -27,18 +27,18 @@ router.post('/status', (req, res, next) => {
 
 router.post('/checklists', async (req, res, next) => {
     if (req.isAuthenticated()) {
-        let checklists = await ChecklistModel.find().exec();
-        console.log(checklists);
-        res.send(checklists);
+        let checklistTasks = await ChecklistModel.find().exec();
+        console.log(checklistTasks);
+        res.send(checklistTasks);
     } else {
     }
 });
 
 router.post('/checklists/new', async (req, res, next) => {
     if (req.isAuthenticated()) {
-        console.log("new checklist", req.body.checklist);
-        let checklist = new ChecklistModel(req.body.checklist);
-        await checklist.save()
+        console.log("new checklist", req.body.checklistTasks);
+        let checklistTasks = new ChecklistModel(req.body.checklistTasks);
+        await checklistTasks.save()
         res.send(new VoidApiResult("ok", ""));
     } else {
 

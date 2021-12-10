@@ -16,20 +16,16 @@ struct ChecklistTabView: View {
             VStack(alignment: .center, spacing: 0){
                 HStack{
                 ChecklistButton(with: createChecklistView)
-                Button(action: {}){
-                    Text("Add New Task")
-                    Image(systemName: "plus")
-                }
                 }
             List(viewModel.checklistTasks) { checklistTasks in
                 ChecklistRow(checklistTasks: checklistTasks)
             }
             .task {
-                await viewModel.getChecklists()
+                await viewModel.getChecklistTasks()
             }
         }.refreshable {
             Task.init{
-                await viewModel.getChecklists()
+                await viewModel.getChecklistTasks()
             }
             }
             }
@@ -51,11 +47,7 @@ struct ChecklistButton: View{
             } ) {
                     VStack(alignment: .center, spacing: 0){
                         Image(systemName: "plus")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 80.0, height: 80.0)
-                            .foregroundColor(Color.black)
-                        Text("Add New Task").padding(.top, 10.0).foregroundColor(Color.black)
+                        Text("Add New Task")
                     }
                 }
                 .popover(isPresented: $showingPopover) {
