@@ -15,10 +15,6 @@ struct CreatePostView: View {
     var body: some View {
         VStack {
             HStack{
-                Button("Cancel") {
- 
-                }
-                Spacer()
                 Button("Post") {
                     Task.init {
                         await vm.save()
@@ -26,7 +22,7 @@ struct CreatePostView: View {
                 }
             }
             Section(header: Text("Title")) {
-                TextField("Title...", text: $vm.post.title)
+                TextField("Title...", text: $vm.checkl.title)
                     .padding()
                     .background(.white)
                     .cornerRadius(6)
