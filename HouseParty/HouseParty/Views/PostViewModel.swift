@@ -1,5 +1,5 @@
 //
-//  PostViewModel.swift
+//  ContentViewModel.swift
 //  HouseParty
 //
 //  Created by Keith Okuna on 10/25/21.
@@ -21,4 +21,5 @@ class PostViewModel: ObservableObject {
             print(error)
         }
     }
+    
 }

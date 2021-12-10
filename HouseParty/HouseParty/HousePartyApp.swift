@@ -18,14 +18,8 @@ struct HousePartyApp: App {
         var authenticationService = AuthenticationService()
         self.authenticationService = authenticationService
         self.apiService = ApiService()
-        // self.contentViewModel = ContentViewModel(apiService: self.apiService)
         self.postViewModel = PostViewModel(apiService: self.apiService)
-        self.loginViewModel = LoginViewModel(apiService: self.apiService, authenticationService: authenticationService)
-        setup()
-    }
-    
-    func setup() {
-
+        self.loginViewModel = LoginViewModel(apiService: self.apiService)
     }
     
     var body: some Scene {
@@ -35,7 +29,7 @@ struct HousePartyApp: App {
             if authenticationService.isValidated{
                 TabView{
                     NavigationView{
-                        PostTabView(viewModel: postViewModel)
+                        PostView(viewModel: postViewModel)
                     }.tabItem{
                         Image(systemName: "house.fill")
                         Text("Timeline")
@@ -47,7 +41,7 @@ struct HousePartyApp: App {
                         Text("Checklist")
                     }
                     NavigationView{
-                        CreatePostTabView(createPostView: createPostView)
+                        LiveView()
                     }.tabItem{
                         Image(systemName: "plus.rectangle.fill")
                         Text("New Post")
