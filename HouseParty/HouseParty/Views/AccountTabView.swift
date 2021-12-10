@@ -26,9 +26,9 @@ var body: some View {
                         Text("Edit Profile")
                     }
                     HStack(alignment: .top){
-                        Text("Username")
+                        Text("Name")
                         Spacer()
-                        Text("SooFlay").foregroundColor(Color.gray)
+                        TextField(text: ).foregroundColor(Color.gray)
                     }
                     HStack(alignment: .top){
                         Text("First Name")

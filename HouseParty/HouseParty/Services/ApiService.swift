@@ -29,6 +29,7 @@ class ApiService :  NSObject {
         var request = URLRequest(url: serviceUrl)
         request.httpMethod = type
         request.setValue("Application/json", forHTTPHeaderField: "Content-Type")
+        
         let jsonData = try! JSONEncoder().encode(parameters)
 
         request.httpBody = jsonData
@@ -39,7 +40,7 @@ class ApiService :  NSObject {
         config.httpShouldSetCookies = true
         config.httpCookieStorage = HTTPCookieStorage.shared
         
-        let (data, urlResponse) = try await URLSession(configuration: config).data(for: request)
+        let (data, _) = try await URLSession(configuration: config).data(for: request)
         
         let result = try JSONDecoder().decode(T.self, from: data);
         return result;
@@ -71,7 +72,8 @@ class ApiService :  NSObject {
             return result;
         }
         catch {
-            throw error;
+            print(error)
+            throw error
         }
     }
     
@@ -81,6 +83,7 @@ class ApiService :  NSObject {
             return result;
         }
         catch {
+            print(error)
             throw error;
         }
     }
@@ -91,8 +94,21 @@ class ApiService :  NSObject {
             return result;
         }
         catch {
+            print(error)
             throw error;
         }
+    }
+    
+    func getUserData() async throws -> User {
+        do {
+            let result:User = try await sendRequest(path:"login", type:"POST", parameters:["":""])
+            return result;
+        }
+        catch {
+            print(error)
+            throw error;
+        }
+        
     }
     
 }

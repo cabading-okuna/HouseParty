@@ -9,7 +9,9 @@ import Foundation
 
 struct User: Codable, Identifiable {
     var id: String { _id }
-    var _id: String
-    var email: String
-    var password: String
+    var _id: String = ""
+    var email: String = ""
+    var bio: String = ""
+    var name: String = ""
+    var password: String = ""
 }

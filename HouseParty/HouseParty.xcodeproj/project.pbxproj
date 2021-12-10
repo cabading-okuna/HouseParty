@@ -11,6 +11,9 @@
 		53102A5F2727BD9D0058E37A /* PostingRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53102A5E2727BD9D0058E37A /* PostingRow.swift */; };
 		53102A622727D1900058E37A /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53102A612727D1900058E37A /* ApiService.swift */; };
 		53102A642727D6250058E37A /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53102A632727D6250058E37A /* ContentViewModel.swift */; };
+		532611452736651A001F382D /* AccountTabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 532611442736651A001F382D /* AccountTabViewModel.swift */; };
+		53261147273666C8001F382D /* PostingDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53261146273666C8001F382D /* PostingDetailView.swift */; };
+		53261149273666DF001F382D /* PostingDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53261148273666DF001F382D /* PostingDetailViewModel.swift */; };
 		537087A22734F457003A5EB7 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537087A12734F457003A5EB7 /* User.swift */; };
 		53C7A23F270988FA007DB2AE /* HousePartyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C7A23E270988FA007DB2AE /* HousePartyApp.swift */; };
 		53C7A241270988FA007DB2AE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C7A240270988FA007DB2AE /* ContentView.swift */; };
@@ -57,6 +60,9 @@
 		53102A612727D1900058E37A /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
 		53102A632727D6250058E37A /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
 		53102A652727EE860058E37A /* server */ = {isa = PBXFileReference; lastKnownFileType = folder; name = server; path = ../server; sourceTree = "<group>"; };
+		532611442736651A001F382D /* AccountTabViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTabViewModel.swift; sourceTree = "<group>"; };
+		53261146273666C8001F382D /* PostingDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostingDetailView.swift; sourceTree = "<group>"; };
+		53261148273666DF001F382D /* PostingDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostingDetailViewModel.swift; sourceTree = "<group>"; };
 		537087A12734F457003A5EB7 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		53C7A23B270988FA007DB2AE /* HouseParty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HouseParty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		53C7A23E270988FA007DB2AE /* HousePartyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HousePartyApp.swift; sourceTree = "<group>"; };
@@ -123,6 +129,7 @@
 			children = (
 				635F1DC92724DBF800913339 /* ScheduleTabView.swift */,
 				635F1DCB2724DE5D00913339 /* AccountTabView.swift */,
+				532611442736651A001F382D /* AccountTabViewModel.swift */,
 				53C7A240270988FA007DB2AE /* ContentView.swift */,
 				635F1DCD2724E25100913339 /* ChecklistTabView.swift */,
 				63FAEF3627352A15000EE4AA /* CreatePostView.swift */,
@@ -135,6 +142,8 @@
 				63388A91272F43C1009633ED /* LoginViewModel.swift */,
 				63FAEF3427352973000EE4AA /* PostViewModel.swift */,
 				6380BA62272E82FA000505FC /* LaunchScreen.storyboard */,
+				53261146273666C8001F382D /* PostingDetailView.swift */,
+				53261148273666DF001F382D /* PostingDetailViewModel.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -338,6 +347,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				53261149273666DF001F382D /* PostingDetailViewModel.swift in Sources */,
 				63FAEF3727352A15000EE4AA /* CreatePostView.swift in Sources */,
 				635F1DCC2724DE5D00913339 /* AccountTabView.swift in Sources */,
 				635F1DCE2724E25100913339 /* ChecklistTabView.swift in Sources */,
@@ -354,7 +364,9 @@
 				63388A94272F55E1009633ED /* LoginView.swift in Sources */,
 				63D8F97027351D3700A69103 /* CreatePostViewModel.swift in Sources */,
 				53102A622727D1900058E37A /* ApiService.swift in Sources */,
+				532611452736651A001F382D /* AccountTabViewModel.swift in Sources */,
 				53102A642727D6250058E37A /* ContentViewModel.swift in Sources */,
+				53261147273666C8001F382D /* PostingDetailView.swift in Sources */,
 				635F1DD02724E2D900913339 /* CreatePostTabView.swift in Sources */,
 				53C7A23F270988FA007DB2AE /* HousePartyApp.swift in Sources */,
 			);

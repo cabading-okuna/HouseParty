@@ -8,6 +8,26 @@ const middleware = require('../middlewares');
 let router = Router();
 export default router;
 
+router.post('/update', async function (req, res, next) {
+    if (req.isAuthenticated()) {
+        let name = req.body.name;
+        let bio = req.body.bio;
+
+        await UserModel.updateOne({ _id: req.user['_id'] }, { $set: { bio, name }})
+        res.send({status: "ok", error: null});
+    } else {
+        res.send({status: "false", error: null});
+    }
+});
+
+router.post('/logout', function (req, res, next) {
+    if (req.isAuthenticated()) {
+        req.logout();
+        res.send({status: "loggedout", error: null});
+    } else {
+        res.send({status: "false", error: null});
+    }
+});
 
 router.post('/login', function (req, res, next) {
     passport.authenticate('local', (err, user, info, status) => {

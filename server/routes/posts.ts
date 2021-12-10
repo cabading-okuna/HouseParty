@@ -36,8 +36,11 @@ router.post('/postings', async (req, res, next) => {
 
 router.post('/postings/new', async (req, res, next) => {
     if (req.isAuthenticated()) {
-        console.log("new posting", req.body.posting);
         let posting = new PostingModel(req.body.posting);
+        let user = await UserModel.find()['getPublicUserInfo'](req.user['_id']);
+        posting.date = new Date();
+        posting.author = user;
+        console.log("new posting", posting);
         await posting.save()
         res.send(new VoidApiResult("ok", ""));
     } else {

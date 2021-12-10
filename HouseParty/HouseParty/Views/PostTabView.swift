@@ -8,6 +8,7 @@ import SwiftUI
 
 struct PostTabView: View {
     @ObservedObject var viewModel: PostViewModel
+    
     var body: some View {
         NavigationView {
             List(viewModel.postings) { posting in
@@ -16,9 +17,12 @@ struct PostTabView: View {
             .task {
                 await viewModel.getPostings()
             }
-        }.refreshable {
-            Task.init{
+        }
+        .navigationTitle("Timeline")
+        .refreshable {
+            Task.init {
                 await viewModel.getPostings()
             }
-        }.navigationTitle("Timeline")
+        }.navigationViewStyle(StackNavigationViewStyle()
+)
     }}

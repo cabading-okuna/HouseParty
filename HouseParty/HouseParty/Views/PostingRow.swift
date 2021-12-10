@@ -13,7 +13,7 @@ struct PostingRow: View {
     var body: some View {
         VStack{
             HStack {
-                Label("user", systemImage: "person")
+                Label(posting.author.name, systemImage: "person")
                 VStack {
                     Text(posting.title)
                         .font(.headline)
@@ -28,7 +28,8 @@ struct PostingRow: View {
 }
 
 struct PostingRow_Previews: PreviewProvider {
-    static var posting = Posting(_id: "abc", userId: "123", body: "hello", title: "test", date: 0)
+    static var author = PostingAuthor(name: "keith okuna")
+    static var posting = Posting(_id: "abc", author: author, body: "hello", title: "test", date: "")
     static var previews: some View {
         PostingRow(posting: posting)
             .previewLayout(.fixed(width: 400, height: 60))
