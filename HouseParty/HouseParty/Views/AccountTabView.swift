@@ -9,8 +9,8 @@ import SwiftUI
 
 struct AccountTabView: View {
     @State private var enableNotification: Bool = true
-    @EnvironmentObject var authentication: AuthenticationService
-    
+    @EnvironmentObject var authentication:  AuthenticationService
+
 var body: some View {
         ScrollView{
             VStack(alignment: .center, spacing: 0){
@@ -75,7 +75,7 @@ var body: some View {
                 }.padding(.top,  8.0)
                 Section{
                     Button("SIGN OUT") {
-                        authentication.updateValidation(success: false)
+                        authentication.isValidated = false;
                     }
                     .multilineTextAlignment(.center)
                     .foregroundColor(.white)

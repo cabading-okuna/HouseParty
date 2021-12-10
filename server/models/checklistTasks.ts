@@ -1,5 +1,5 @@
 import { ObjectId } from "mongodb";
-import { Schema, model, connect, SchemaDefinition} from "mongoose";
+import { Schema, model, connect, SchemaDefinition, Date} from "mongoose";
 import { User, UserModel } from "./user"
 
 import mongoose from 'mongoose';
@@ -9,6 +9,7 @@ interface ChecklistTasks {
     userId: User;
     taskName: string;
     notes: string;
+    date: string;
 }
 
 const checklistTaskSchema = new Schema<ChecklistTasks>({
@@ -17,6 +18,10 @@ const checklistTaskSchema = new Schema<ChecklistTasks>({
         required: true
     },
     notes: {
+        type: String,
+        required: false
+    },
+    date: {
         type: String,
         required: false
     },

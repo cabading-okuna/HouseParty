@@ -8,31 +8,60 @@
 import SwiftUI
 
 struct ChecklistTabView: View {
+        @ObservedObject var viewModel: ChecklistViewModel
     var body: some View {
         NavigationView{
             VStack(alignment: .center, spacing: 0){
                 HStack{
+                ChecklistButton(with: createChecklistView)        
                 Button(action: {}){
                     Text("Add New Task")
                     Image(systemName: "plus")
                 }
                 }
-            List{
-                Text("Walk the dog")
-                Text("Water the plants")
-                Text("Make breakfast")
-                Text("Buy 2 bags of potato chips")
-                Text("Buy 3 onions and 5 tomatoes")
-                Text("Do Laundry")
-                Text("Chem Homework #13")
-                Text("CompSci Assignment 5")
-                Text("Call mom back")
-                Text("Register for classes")
+            List(viewModel.checklistTasks) { checklistTasks in
+                ChecklistRow(checklistTasks: checklistTasks)
+            }
+            .task {
+                await viewModel.getChecklists()
+            }
+        }.refreshable {
+            Task.init{
+                await viewModel.getChecklists()
+            }
             }
             }
             .navigationBarTitle("Checklist", displayMode: .inline)
             .padding(.all, 15.0)
         }
+    }
+}
+
+struct CheckistButton: View{
+    @State private var showingPopover = false
+    let createChecklistView: CreateChecklistView
+    init (with createChecklistView:CreateChecklistView) {
+        self.createChecklistView = createChecklistView
+    }
+    var body: some View{
+        Section{
+            Button(action: {
+                showingPopover = true;
+            } ) {
+                    VStack(alignment: .center, spacing: 0){
+                        Image(systemName: "plus")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 80.0, height: 80.0)
+                            .foregroundColor(Color.black)
+                        Text("Add New Task").padding(.top, 10.0).foregroundColor(Color.black)
+                    }
+                }
+                .popover(isPresented: $showingPopover) {
+                    createChecklistView
+                }
+
+        }.padding(.all, 45.0)
     }
 }
 

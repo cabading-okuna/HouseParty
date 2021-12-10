@@ -13,7 +13,7 @@ struct PostingRow: View {
     var body: some View {
         VStack{
             HStack {
-                Label("user", systemImage: "person")
+                Label("Sue Flay", systemImage: "person")
                 VStack {
                     Text(posting.title)
                         .font(.headline)
