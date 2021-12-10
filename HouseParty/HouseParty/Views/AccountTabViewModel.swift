@@ -18,7 +18,7 @@ class AccountTabViewModel: ObservableObject {
     
     func getUserData() {
         do {
-            user = try await apiService.getUserData();
+//            user = try await apiService.getUserData();
         } catch {
             
         }

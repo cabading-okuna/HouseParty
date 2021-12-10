@@ -1,0 +1,10 @@
+name: HouseParty
+options:
+  bundleIdPrefix: com.myapp
+targets:
+  HouseParty:
+    type: application
+    platform: iOS
+    deploymentTarget: "15.0"
+    sources: [HouseParty]
+

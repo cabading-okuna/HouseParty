@@ -19,7 +19,7 @@ struct HousePartyApp: App {
         self.authenticationService = authenticationService
         self.apiService = ApiService()
         self.postViewModel = PostViewModel(apiService: self.apiService)
-        self.loginViewModel = LoginViewModel(apiService: self.apiService)
+        self.loginViewModel = LoginViewModel(apiService: self.apiService, authenticationService: authenticationService)
     }
     
     var body: some Scene {
@@ -41,7 +41,7 @@ struct HousePartyApp: App {
                         Text("Checklist")
                     }
                     NavigationView{
-                        LiveView()
+                        LiveView(createPostView: createPostView)
                     }.tabItem{
                         Image(systemName: "plus.rectangle.fill")
                         Text("New Post")

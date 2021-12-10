@@ -7,6 +7,6 @@
 
 import Foundation
 
-struct PostingDetailViewModel {
+class PostingDetailViewModel : ObservableObject {
     
 }

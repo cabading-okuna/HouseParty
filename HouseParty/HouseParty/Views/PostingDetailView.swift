@@ -12,8 +12,8 @@ import SwiftUI
 
 struct PostingDetailView: View {
     @ObservedObject var vm: PostingDetailViewModel
-    
+
     var body: some View {
-        
+        ScrollView{}
     }
 }

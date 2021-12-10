@@ -8,7 +8,7 @@ import Foundation
 
 class ChecklistViewModel: ObservableObject {
     var apiService: ApiService
-    @Published var checklistTasks = [ChecklistTasks]()
+//    @Published var checklistTasks = [ChecklistTasks]()
     
     init(apiService:ApiService) {
         self.apiService = apiService
@@ -16,7 +16,7 @@ class ChecklistViewModel: ObservableObject {
     
     func getChecklists() async {
         do {
-            postings = try await apiService.getChecklists();
+//            var postings = try await apiService.getChecklists();
         } catch {
             print(error)
         }

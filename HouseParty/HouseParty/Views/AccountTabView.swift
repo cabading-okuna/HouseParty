@@ -9,6 +9,7 @@ import SwiftUI
 
 struct AccountTabView: View {
     @State private var enableNotification: Bool = true
+    @State private var text: String = ""
     @EnvironmentObject var authentication: AuthenticationService
     
 var body: some View {
@@ -28,7 +29,7 @@ var body: some View {
                     HStack(alignment: .top){
                         Text("Name")
                         Spacer()
-                        TextField(text: ).foregroundColor(Color.gray)
+//                        TextField(text: $text).foregroundColor(Color.gray)
                     }
                     HStack(alignment: .top){
                         Text("First Name")
