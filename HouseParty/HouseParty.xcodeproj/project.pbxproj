@@ -28,6 +28,11 @@
 		635F1DCE2724E25100913339 /* ChecklistTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635F1DCD2724E25100913339 /* ChecklistTabView.swift */; };
 		635F1DD02724E2D900913339 /* CreatePostTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635F1DCF2724E2D900913339 /* CreatePostTabView.swift */; };
 		6380BA63272E82FA000505FC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6380BA62272E82FA000505FC /* LaunchScreen.storyboard */; };
+		638CA958276345D40051730F /* ChecklistRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638CA957276345D40051730F /* ChecklistRow.swift */; };
+		638CA95A276345EF0051730F /* ChecklistViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638CA959276345EF0051730F /* ChecklistViewModel.swift */; };
+		638CA95C276346020051730F /* CreateChecklistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638CA95B276346020051730F /* CreateChecklistView.swift */; };
+		638CA95E276346A80051730F /* CreateChecklistViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638CA95D276346A80051730F /* CreateChecklistViewModel.swift */; };
+		638CA96027634A020051730F /* ChecklistTasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638CA95F27634A020051730F /* ChecklistTasks.swift */; };
 		63D8F97027351D3700A69103 /* CreatePostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D8F96F27351D3700A69103 /* CreatePostViewModel.swift */; };
 		63FAEF3327352958000EE4AA /* PostTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FAEF3227352958000EE4AA /* PostTabView.swift */; };
 		63FAEF3527352974000EE4AA /* PostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FAEF3427352973000EE4AA /* PostViewModel.swift */; };
@@ -77,6 +82,11 @@
 		635F1DCD2724E25100913339 /* ChecklistTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistTabView.swift; sourceTree = "<group>"; };
 		635F1DCF2724E2D900913339 /* CreatePostTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostTabView.swift; sourceTree = "<group>"; };
 		6380BA62272E82FA000505FC /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		638CA957276345D40051730F /* ChecklistRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChecklistRow.swift; sourceTree = "<group>"; };
+		638CA959276345EF0051730F /* ChecklistViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChecklistViewModel.swift; sourceTree = "<group>"; };
+		638CA95B276346020051730F /* CreateChecklistView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateChecklistView.swift; sourceTree = "<group>"; };
+		638CA95D276346A80051730F /* CreateChecklistViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateChecklistViewModel.swift; sourceTree = "<group>"; };
+		638CA95F27634A020051730F /* ChecklistTasks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChecklistTasks.swift; sourceTree = "<group>"; };
 		63D8F96F27351D3700A69103 /* CreatePostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostViewModel.swift; sourceTree = "<group>"; };
 		63FAEF3227352958000EE4AA /* PostTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTabView.swift; sourceTree = "<group>"; };
 		63FAEF3427352973000EE4AA /* PostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewModel.swift; sourceTree = "<group>"; };
@@ -111,6 +121,7 @@
 		53102A5A2727BCDF0058E37A /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				638CA95F27634A020051730F /* ChecklistTasks.swift */,
 				53102A5B2727BCFC0058E37A /* Posting.swift */,
 				63388A8F272F4205009633ED /* Credentials.swift */,
 				537087A12734F457003A5EB7 /* User.swift */,
@@ -121,6 +132,10 @@
 		53102A5D2727BD620058E37A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				638CA95B276346020051730F /* CreateChecklistView.swift */,
+				638CA95D276346A80051730F /* CreateChecklistViewModel.swift */,
+				638CA959276345EF0051730F /* ChecklistViewModel.swift */,
+				638CA957276345D40051730F /* ChecklistRow.swift */,
 				635F1DC92724DBF800913339 /* ScheduleTabView.swift */,
 				635F1DCB2724DE5D00913339 /* AccountTabView.swift */,
 				53C7A240270988FA007DB2AE /* ContentView.swift */,
@@ -349,13 +364,18 @@
 				63388A90272F4205009633ED /* Credentials.swift in Sources */,
 				63388A92272F43C1009633ED /* LoginViewModel.swift in Sources */,
 				537087A22734F457003A5EB7 /* User.swift in Sources */,
+				638CA958276345D40051730F /* ChecklistRow.swift in Sources */,
 				63FAEF3327352958000EE4AA /* PostTabView.swift in Sources */,
 				63388A96272F5917009633ED /* AuthenticationService.swift in Sources */,
 				63388A94272F55E1009633ED /* LoginView.swift in Sources */,
+				638CA96027634A020051730F /* ChecklistTasks.swift in Sources */,
 				63D8F97027351D3700A69103 /* CreatePostViewModel.swift in Sources */,
 				53102A622727D1900058E37A /* ApiService.swift in Sources */,
+				638CA95A276345EF0051730F /* ChecklistViewModel.swift in Sources */,
 				53102A642727D6250058E37A /* ContentViewModel.swift in Sources */,
+				638CA95C276346020051730F /* CreateChecklistView.swift in Sources */,
 				635F1DD02724E2D900913339 /* CreatePostTabView.swift in Sources */,
+				638CA95E276346A80051730F /* CreateChecklistViewModel.swift in Sources */,
 				53C7A23F270988FA007DB2AE /* HousePartyApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

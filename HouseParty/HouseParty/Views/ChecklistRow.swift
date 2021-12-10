@@ -2,7 +2,7 @@
 //  ChecklistRow.swift
 //  HouseParty
 //
-//  Created by Alyssanddra Cabading on 12/09/2021.
+//  Created by Alyssandra Cabading on 12/09/2021.
 //
 import Foundation
 import SwiftUI
@@ -16,10 +16,10 @@ struct ChecklistRow: View {
                 VStack {
                     Text(checklistTasks.task)
                         .font(.headline)
-                    Space()
+                    Spacer()
                     Text(checklistTasks.date)
                 }
-                Space()
+                Spacer()
                 VStack {
                     Text(checklistTasks.notes)
                     .font(.headline) 

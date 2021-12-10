@@ -16,7 +16,7 @@ class ChecklistViewModel: ObservableObject {
     
     func getChecklists() async {
         do {
-            checklistTasks = try await apiService.getChecklists();
+            checklistTasks = try await apiService.getChecklistTasks();
         } catch {
             print(error)
         }

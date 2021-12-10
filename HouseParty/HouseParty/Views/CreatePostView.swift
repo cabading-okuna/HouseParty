@@ -22,7 +22,7 @@ struct CreatePostView: View {
                 }
             }
             Section(header: Text("Title")) {
-                TextField("Title...", text: $vm.checkl.title)
+                TextField("Title...", text: $vm.post.title)
                     .padding()
                     .background(.white)
                     .cornerRadius(6)

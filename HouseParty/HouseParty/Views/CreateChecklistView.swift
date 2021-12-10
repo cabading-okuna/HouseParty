@@ -22,7 +22,7 @@ struct CreateChecklistView: View {
                 }
             }
             Section(header: Text("Task")) {
-                TextField("Task...", text: $vm.post.task)
+                TextField("Task...", text: $vm.checklist.task)
                     .padding()
                     .background(.white)
                     .cornerRadius(6)
@@ -31,7 +31,7 @@ struct CreateChecklistView: View {
           
             
             Section(header: Text("Notes")) {
-                TextEditor(text: $vm.post.notes)
+                TextEditor(text: $vm.checklist.notes)
                     .cornerRadius(6)
             }
             .padding()

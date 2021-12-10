@@ -13,6 +13,7 @@ struct HousePartyApp: App {
     var apiService: ApiService
     var postViewModel: PostViewModel
     var loginViewModel: LoginViewModel
+    var checklistViewModel: ChecklistViewModel
     
     init() {
         var authenticationService = AuthenticationService()
@@ -20,6 +21,7 @@ struct HousePartyApp: App {
         self.apiService = ApiService()
         // self.contentViewModel = ContentViewModel(apiService: self.apiService)
         self.postViewModel = PostViewModel(apiService: self.apiService)
+        self.checklistViewModel = ChecklistViewModel(apiService: self.apiService)
         self.loginViewModel = LoginViewModel(apiService: self.apiService, authenticationService: authenticationService)
         setup()
     }
@@ -31,6 +33,9 @@ struct HousePartyApp: App {
     var body: some Scene {
         let createPostVM = CreatePostViewModel(apiService: self.apiService)
         let createPostView = CreatePostView(vm: createPostVM, posting: Posting())
+        let createChecklistVM = CreateChecklistViewModel(apiService: self.apiService)
+        let createChecklistView = CreateChecklistView(vm: createChecklistVM, checklistTasks: ChecklistTasks())
+
         WindowGroup {
             if authenticationService.isValidated{
                 TabView{
@@ -41,7 +46,7 @@ struct HousePartyApp: App {
                         Text("Timeline")
                     }
                     NavigationView{
-                        ChecklistTabView()
+                        ChecklistTabView(viewModel: checklistViewModel, createChecklistView: createChecklistView)
                     }.tabItem{
                         Image(systemName: "checkmark")
                         Text("Checklist")

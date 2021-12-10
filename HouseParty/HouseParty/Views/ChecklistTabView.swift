@@ -8,12 +8,14 @@
 import SwiftUI
 
 struct ChecklistTabView: View {
-        @ObservedObject var viewModel: ChecklistViewModel
+    @ObservedObject var viewModel: ChecklistViewModel
+    let createChecklistView: CreateChecklistView;
+
     var body: some View {
         NavigationView{
             VStack(alignment: .center, spacing: 0){
                 HStack{
-                ChecklistButton(with: createChecklistView)        
+                ChecklistButton(with: createChecklistView)
                 Button(action: {}){
                     Text("Add New Task")
                     Image(systemName: "plus")
@@ -35,9 +37,8 @@ struct ChecklistTabView: View {
             .padding(.all, 15.0)
         }
     }
-}
 
-struct CheckistButton: View{
+struct ChecklistButton: View{
     @State private var showingPopover = false
     let createChecklistView: CreateChecklistView
     init (with createChecklistView:CreateChecklistView) {
@@ -68,7 +69,6 @@ struct CheckistButton: View{
 struct ChecklistView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView{
-            ChecklistTabView()
         }
     }
 }
