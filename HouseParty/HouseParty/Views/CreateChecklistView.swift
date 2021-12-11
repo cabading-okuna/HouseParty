@@ -1,5 +1,5 @@
 //
-//  CreatePost.swift
+//  CreateChecklistView.swift
 //  HouseParty
 //
 //  Created by Alyssandra Katrina Cabading on 11/4/21.
@@ -7,36 +7,37 @@
 import Foundation
 import SwiftUI
 
-struct CreatePostView: View {
-    @ObservedObject var vm: CreatePostViewModel
-    
-    var posting: Posting
+struct CreateChecklistView: View {
+    @ObservedObject var vm: CreateChecklistViewModel
+    @State private var date = Date()
+
+    var checklistTasks: ChecklistTasks
     
     var body: some View {
         VStack {
             HStack{
-                Button("Post") {
+                Spacer()
+                Button("Add Task") {
                     Task.init {
                         await vm.save()
                     }
                 }
             }
-            Section(header: Text("Title")) {
-                TextField("Title...", text: $vm.post.title)
+            Section(header: Text("Task")) {
+                TextField("Task...", text: $vm.checklist.task)
                     .padding()
                     .background(.white)
                     .cornerRadius(6)
                     .padding(.bottom)
             }
-          
-            
-            Section(header: Text("Post")) {
-                TextEditor(text: $vm.post.body)
+                 DatePicker(selection: $date, displayedComponents: .date, label: { Text("Due Date") })
+            Section(header: Text("Notes")) {
+                TextEditor(text: $vm.checklist.notes)
                     .cornerRadius(6)
             }
             .padding()
         }
         .padding()
-        .navigationTitle("New Post")
+        .navigationTitle("Add New Task")
         .background(LinearGradient(gradient: Gradient(colors: [.white, .gray]), startPoint: .top, endPoint: .bottom))    }
 }

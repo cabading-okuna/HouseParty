@@ -7,6 +7,7 @@ import connectMongo from 'connect-mongo';
 import MongoStore from 'connect-mongo';
 import authRouter from './routes/auth';
 import routes from './routes/posts';
+import routes2 from './routes/list';
 import passport, { Passport } from 'passport';
 import { PassportStrategyInitializer } from './passport-setup';
 
@@ -34,6 +35,8 @@ const oneWeek = 7 * 1000 * 60 * 60 * 24;
 
     app.use('/api', authRouter);
     app.use('/api', routes);
+    app.use('/api', routes2);
+
 
     mongoose.connect(dbURI);
     const db = mongoose.connection

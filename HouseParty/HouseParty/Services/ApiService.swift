@@ -56,6 +56,26 @@ class ApiService :  NSObject {
         }
     }
     
+    func createChecklistTasks(newChecklistTasks: ChecklistTasks) async throws -> VoidApiResult {
+        do {
+            let result:VoidApiResult = try await sendRequest(path:"checklists/new", type: "POST", parameters: ["checklistTasks":newChecklistTasks])
+            return result;
+        }
+        catch {
+            throw error;
+        }
+    }
+    
+    func getChecklistTasks() async throws -> [ChecklistTasks] {
+        do {
+            let result:[ChecklistTasks] = try await sendRequest(path:"checklists", type:"POST", parameters: ["":""])
+            return result;
+        }
+        catch {
+            throw error;
+        }
+    }
+    
     func createPosting(newPosting: Posting) async throws -> VoidApiResult {
         do {
             let result:VoidApiResult = try await sendRequest(path:"postings/new", type: "POST", parameters: ["posting":newPosting])
@@ -98,7 +118,6 @@ class ApiService :  NSObject {
             throw error;
         }
     }
-    
     func getUserData() async throws -> User {
         do {
             let result:User = try await sendRequest(path:"login", type:"POST", parameters:["":""])
@@ -110,5 +129,4 @@ class ApiService :  NSObject {
         }
         
     }
-    
 }
