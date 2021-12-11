@@ -12,23 +12,17 @@ struct ChecklistRow: View {
     
     var body: some View {
         VStack{
-            HStack {
+            HStack (alignment: .center) {
                 VStack {
                     Text(checklistTasks.task)
                         .font(.headline)
                 }
-                Spacer()
-                VStack {
-                    Text(checklistTasks.notes)
-                    .font(.headline) 
-                }
                 .padding()
-                Spacer()
+                Text(checklistTasks.notes)
+                }
             }
         }
-        .padding()
     }
-}
 
 struct ChecklistRow_Previews: PreviewProvider {
     static var checklistTasks = ChecklistTasks(_id: "abc", userId: "123", task: "Task #1", notes: "This is sample note 1")

@@ -9,7 +9,8 @@ import SwiftUI
 
 struct CreateChecklistView: View {
     @ObservedObject var vm: CreateChecklistViewModel
-    
+    @State private var date = Date()
+
     var checklistTasks: ChecklistTasks
     
     var body: some View {
@@ -29,8 +30,7 @@ struct CreateChecklistView: View {
                     .cornerRadius(6)
                     .padding(.bottom)
             }
-          
-            
+                 DatePicker(selection: $date, displayedComponents: .date, label: { Text("Due Date") })
             Section(header: Text("Notes")) {
                 TextEditor(text: $vm.checklist.notes)
                     .cornerRadius(6)

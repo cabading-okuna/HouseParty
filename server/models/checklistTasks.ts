@@ -7,13 +7,12 @@ import mongoose from 'mongoose';
 interface ChecklistTasks {
     _id: ObjectId;
     userId: User;
-    taskName: string;
+    task: string;
     notes: string;
-    date: string;
 }
 
 const checklistTaskSchema = new Schema<ChecklistTasks>({
-    taskName: {
+    task: {
         type: String,
         required: true
     },

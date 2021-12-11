@@ -16,7 +16,6 @@ class VoidApiResult {
     error: String;
 }
 
-
 router.post('/status', (req, res, next) => {
     if (req.isAuthenticated()) {
         res.send({status: "loggedin", error: null});
